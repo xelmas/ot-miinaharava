@@ -1,6 +1,6 @@
 # Harjoitustyö
 
-Kurssin **Ohjelmistotekniikka** 2023 harjoitustyötä varten luotu repositorio. Harjoitustyönä luodaan *miinaharava*.
+Kurssin **Ohjelmistotekniikka** harjoitustyötä varten luotu repositorio. Harjoitustyönä luodaan *miinaharava*.
 
 ## Tehtävät
 
