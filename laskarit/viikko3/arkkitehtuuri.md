@@ -22,7 +22,7 @@ Kullakin pelaajalla on yksi pelinappula. Pelinappula sijaitsee aina yhdessä ruu
       Piece "0..8" ..> "1" Square
       class Piece{
       }
-      Square "1" --> "1" Square
+      Square "1" --> "1" Square: next square
       class Square{
       }
       class Dice{
