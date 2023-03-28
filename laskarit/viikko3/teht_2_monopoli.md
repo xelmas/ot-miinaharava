@@ -74,7 +74,7 @@ Vaatimukset:
       }
       class House {
       }
-      Card "1" -- "1" Action
+      Card "*" -- "1" Action
       class Card{
       }
       class Action {
