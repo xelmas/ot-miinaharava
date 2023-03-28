@@ -23,29 +23,29 @@ Vaatimukset:
 
 ```mermaid
  classDiagram
-      Game "1" --> "2..8" Player
-      Game "1" --> "1" Board
-      Game "1" --> "2" Dice
-      Game "1" --> "1" Jail
-      Game "1" --> "1" Start
+      Game "1" -- "2..8" Player
+      Game "1" -- "1" Board
+      Game "1" -- "2" Dice
+      Game "1" -- "1" Jail
+      Game "1" -- "1" Start
       
       class Game {
       }
-      Player "1" --> "1" Piece
+      Player "1" -- "1" Piece
       Player "1" ..> "1" Street
       class Player{
         money
       }
-      Board "1" --> "40" Square
+      Board "1" -- "40" Square
       class Board{
       }
       Piece "0..8" ..> "1" Square
       class Piece{
       }
-      Square "1" --> "1" Square: next square
+      Square "1" -- "1" Square: next square
+      Square "*" -- "1" Action
       class Square{
         type
-        action()
       }
       class Dice{
       }
@@ -62,11 +62,11 @@ Vaatimukset:
       class Jail {
         square
       }
-      Chance "1" --> "1" Card
+      Chance "1" -- "1" Card
       class Chance {
       }
-      Street "1" --> "0..4" House
-      Street "1" --> "0..1" Hotel
+      Street "1" -- "0..4" House
+      Street "1" -- "0..1" Hotel
       class Street {
         name
       }
@@ -74,8 +74,10 @@ Vaatimukset:
       }
       class House {
       }
+      Card "1" -- "1" Action
       class Card{
-        action()
       }
-      
+      class Action {
+         name
+      }
       
