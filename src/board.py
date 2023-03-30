@@ -23,12 +23,18 @@ class Board:
         self._initialize_sprites()
 
     def set_board(self):
-        self.board = [[0 for i in range(self.cols)] for j in range(self.rows)]
+        self.board = [["-" for i in range(self.cols)] for j in range(self.rows)]
         for k in range(self.num_mines):
             col = random.randint(0, self.cols-1)
             row = random.randint(0, self.rows-1)
             self.board[row][col] = "X"
             self.mine_coordinates.append((col, row))
+    
+    def get_board(self):
+        return self.board
+
+    def get_num_mines(self):
+        return self.num_mines
 
     def _initialize_sprites(self):
         height = len(self.board)
@@ -42,6 +48,8 @@ class Board:
 
                 if cell == "X":
                     self.mines.add(Mine(norm_x, norm_y))
+                elif cell == "-":
+                    self.unopened.add(Unopened(norm_x, norm_y))
                 elif cell == 0:
                     self.empty.add(Empty(norm_x, norm_y))
                 else:
