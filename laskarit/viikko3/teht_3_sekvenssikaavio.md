@@ -1,6 +1,6 @@
 ## Tehtävän kuvaus
 
-Tarkastellaan bensatankista ja moottorista koostuvan koneen Python-koodia.
+Tarkastellaan bensatankista ja moottorista koostuvan koneen Python-koodia, joka löytyy tiedostosta teht_3_code.py.
 Piirrä sekvenssikaaviona tilanne, jossa kutsutaan (jostain koodin ulkopuolella olevasta metodista) ensin Machine-luokan konstruktoria ja sen jälkeen luodun Machine-olion metodia drive.
 
 ```mermaid

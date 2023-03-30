@@ -1,6 +1,6 @@
 ## Tehtävän kuvaus
 
-Tarkastellaan HSL-matkakorttien hallintaan käytettävää koodia.
+Tarkastellaan HSL-matkakorttien hallintaan käytettävää koodia, joka löytyy tiedostosta teht_4_code.py.
 Kuvaa sekvenssikaaviona koodin main-funktion suorituksen aikaansaama toiminnallisuus.
 
 ```mermaid
