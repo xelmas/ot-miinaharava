@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "harjoitustyo"
+version = "0.1.0"
+description = ""
+authors = ["Elisa Suorsa <84924097+xelmas@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+invoke = "^2.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
