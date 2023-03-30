@@ -4,6 +4,6 @@ Kurssin **Ohjelmistotekniikka** harjoitustyötä varten luotu repositorio. Harjo
 
 ## Dokumentaatio
 [Tuntikirjanpito](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/tuntikirjanpito.md) \
-[Vaatimusmaarittely](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/vaatimusmaarittely.md) \
+[Vaatimusmäärittely](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/vaatimusmaarittely.md) \
 [Changelog](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/changelog.md)
 
