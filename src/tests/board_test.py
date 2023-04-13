@@ -1,11 +1,11 @@
 import unittest
-from board import Board
+from minesweeper import Minesweeper
 
 CELL_SIZE = 50
 
 class TestBoard(unittest.TestCase):
     def setUp(self):
-        self.board= Board(8,9,6, CELL_SIZE)
+        self.board = Minesweeper(8,9,6, CELL_SIZE)
     
     def test_board_exists(self):
         self.assertNotEqual(self.board, None)
