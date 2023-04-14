@@ -14,6 +14,7 @@ class Minesweeper:
         self.mines = set()
         self.revealed = set()
         self.game_over = False
+
         self.board = [["" for _ in range(self.width)] for _ in range(self.height)]
         self.cell_size = cell_size
         self.mine_tiles = pygame.sprite.Group()
@@ -21,6 +22,7 @@ class Minesweeper:
         self.adjecent_tiles = pygame.sprite.Group()
         self.unrevealed_tiles = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
+
         self.place_mines()
         self._initialize_sprites()
 
@@ -50,7 +52,6 @@ class Minesweeper:
                 
                 if 0 <= new_x < self.width and 0 <= new_y < self.height:
                     result.append((new_x, new_y))
-        print("neighbors for", x,y, "is", result)
         return result
     
     def get_num_adjacent_mines(self, x, y):
@@ -94,9 +95,13 @@ class Minesweeper:
         return self.num_mines
     
     def print_board(self):
-        for i in range(len(self.board)):
-            print(self.board[i])
-        print()             
+        for y in range(len(self.board)):
+            for x in range(len(self.board[y])):
+                if (x,y) in self.revealed:
+                    print(self.board[y][x], end="")
+                else:
+                    print("0", end="")
+            print()            
     
     def play(self):
         while not self.game_over:
@@ -122,14 +127,15 @@ class Minesweeper:
                 norm_x = x * self.cell_size
                 norm_y = y * self.cell_size
 
-                if cell == "x":
-                    self.mine_tiles.add(Mine(norm_x, norm_y))
-                elif cell == "":
-                    self.unrevealed_tiles.add(Unrevealed(norm_x, norm_y))
-                elif cell == " ":
-                    self.empty_tiles.add(Empty(norm_x, norm_y))
+                if (x,y) in self.revealed:
+                    if cell == "x":
+                        self.mine_tiles.add(Mine(norm_x, norm_y))
+                    elif cell == " ":
+                        self.empty_tiles.add(Empty(norm_x, norm_y))
+                    else:
+                        self.adjecent_tiles.add(Adjecent(norm_x, norm_y, cell))
                 else:
-                    self.adjecent_tiles.add(Adjecent(norm_x, norm_y, cell))          
+                    self.unrevealed_tiles.add(Unrevealed(norm_x, norm_y))      
 
         self.all_sprites.add(
             self.mine_tiles,
