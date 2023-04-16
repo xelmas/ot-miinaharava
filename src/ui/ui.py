@@ -1,6 +1,7 @@
 import pygame_gui
 import pygame
 from minesweeper import Minesweeper
+
 LEVELS = {"Beginner": (9, 9, 10), "Intermediate": (
     16, 16, 40), "Expert": (16, 30, 99), "Custom": (15, 15, 15)}
 CELL_SIZE = 50
@@ -9,7 +10,9 @@ CELL_SIZE = 50
 class UI:
     def __init__(self) -> None:
 
+        # pylint: disable=no-member
         pygame.init()
+        # pylint: enable=no-member
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Main menu")
         self.window_surface = pygame.display.set_mode((800, 600))
@@ -87,21 +90,21 @@ class UI:
 
         self.manager.clear_and_reset()
         pygame.display.set_caption("Options")
-        text = pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+        pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
             (350, 150), (120, 70)), text="Choose level", manager=self.manager)
-        levels = pygame_gui.elements.UIDropDownMenu(options_list=[
-                                                    "Beginner", "Intermediate", "Expert", "Custom"], starting_option=self.level, relative_rect=pygame.Rect((350, 200), (150, 50)))
+        pygame_gui.elements.UIDropDownMenu(options_list=[
+            "Beginner", "Intermediate", "Expert", "Custom"], starting_option=self.level, relative_rect=pygame.Rect((350, 200), (150, 50)))
 
         if self.level == "Custom":
-            text2 = pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+            pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
                 (70, 240), (300, 70)), text="Write number and press enter:", manager=self.manager)
-            dimension_width = pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250), (150, 50)),
-                                                                  manager=self.manager, placeholder_text=f"{self.game_width}", visible=1, object_id="width")
-            text3 = pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+            pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250), (150, 50)),
+                                                manager=self.manager, placeholder_text=f"{self.game_width}", visible=1, object_id="width")
+            pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
                 (70, 290), (300, 70)), text="Write number and press enter:", manager=self.manager)
 
-            dimension_height = pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+50), (150, 50)),
-                                                                   manager=self.manager, placeholder_text=f"{self.game_height}", visible=1, object_id="height")
+            pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+50), (150, 50)),
+                                                manager=self.manager, placeholder_text=f"{self.game_height}", visible=1, object_id="height")
         self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
@@ -114,7 +117,9 @@ class UI:
         pygame.display.set_caption("Minesweeper")
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
+        # pylint: disable=no-member
         pygame.init()
+        # pylint: enable=no-member
         game.all_sprites.draw(display)
 
         running = True
@@ -122,11 +127,15 @@ class UI:
 
         while running:
             for event in pygame.event.get():
+                # pylint: disable=no-member
                 if event.type == pygame.QUIT:
+                    # pylint: enable=no-member
                     running = False
             pygame.display.update()
-
+        # pylint: disable=no-member
         pygame.quit()
+        # pylint: enable=no-member
+
         # Play game in terminal
         # winning condition: find all tiles that are not mines
         # losing condition: reveal a mine tile
@@ -139,8 +148,10 @@ class UI:
         while is_running:
             time_delta = self.clock.tick(60)/1000.0
             for event in pygame.event.get():
+                # pylint: disable=no-member
                 if event.type == pygame.QUIT:
                     is_running = False
+                # pylint: enable=no-member
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == self.play_button:
