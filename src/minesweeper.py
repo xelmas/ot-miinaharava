@@ -70,10 +70,10 @@ class Minesweeper:
 
         if x_cor < 0 or y_cor < 0:
             print("x and y cannot be negative")
-            return True
+            return False
         if x_cor >= self.width or y_cor >= self.height:
             print("Coordinate overflow")
-            return True
+            return False
 
         if (x_cor, y_cor) in self.mines:
             self.game_over = True
