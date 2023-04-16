@@ -9,5 +9,5 @@
 |   5.4.        |       3       | Pelilogiikan suunnittelu ja luominen |
 |   12.4.       |       3       | Pelilogiikan luominen |
 |   13.4.       |       7       | Pelilogiikan sisällyttäminen osaksi projektia |
-|   14.4.       |       x       | Käyttöliittymän lisääminen |
-|   yht.        |       29      |               |
+|   16.4.       |       5       | Käyttöliittymän lisääminen ja testit |
+|   yht.        |       34      |               |

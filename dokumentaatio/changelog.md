@@ -11,4 +11,4 @@
 - Pelilogiikka luotu toimimaan terminaalissa
 - Testattu Minesweeper-luokan pelikentän luominen ja miinojen asetus
 - Luotu käyttöliittymäluokka UI
-- Päävalikkoon luotu neljä eri toimintoa, asetuksiin luotu toiminnallisuutta
+- Päävalikkoon luotu neljä eri toimintoa, asetuksiin luotu toiminnallisuus kentän dimensioiden muokkaamiseen

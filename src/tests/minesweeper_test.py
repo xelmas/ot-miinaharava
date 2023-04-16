@@ -4,7 +4,7 @@ from minesweeper import Minesweeper
 CELL_SIZE = 50
 
 
-class TestBoard(unittest.TestCase):
+class TestMinesweeper(unittest.TestCase):
     def setUp(self):
         self.board = Minesweeper(8, 9, 6, CELL_SIZE)
 

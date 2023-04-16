@@ -67,6 +67,14 @@ class Minesweeper:
         return count
 
     def reveal(self, x_cor, y_cor):
+
+        if x_cor < 0 or y_cor < 0:
+            print("x and y cannot be negative")
+            return True
+        if x_cor >= self.width or y_cor >= self.height:
+            print("Coordinate overflow")
+            return True
+
         if (x_cor, y_cor) in self.mines:
             self.game_over = True
             return False
@@ -106,12 +114,17 @@ class Minesweeper:
             print()
 
     def play(self):
+
         while not self.game_over:
             self.print_board()
-
-            x_cor = int(input("Enter x coordinate: "))
-            y_cor = int(input("Enter y coordinate: "))
-            self.reveal(x_cor, y_cor)
+            while True:
+                try:
+                    x_cor = int(input("Enter x coordinate: "))
+                    y_cor = int(input("Enter y coordinate: "))
+                    self.reveal(x_cor, y_cor)
+                    break
+                except ValueError:
+                    print("Must be digits")
 
         num_all_tiles = self.width * self.height - self.num_mines
         if self.game_over and len(self.revealed) == num_all_tiles:
