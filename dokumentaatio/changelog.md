@@ -9,6 +9,6 @@
 - Muokattu tiedostojen ja luokkien nimiä, refaktoroitu koodia.
 - Board-luokka muutettu Minesweeper-luokaksi, joka vastaa pelilogiikasta.
 - Pelilogiikka luotu toimimaan terminaalissa
-- Testattu Minesweeper-luokan pelikentän luominen ja miinojen asetus
+- Testattu Minesweeper-luokan reveal-funktion toiminta
 - Luotu käyttöliittymäluokka UI
 - Päävalikkoon luotu neljä eri toimintoa, asetuksiin luotu toiminnallisuus kentän dimensioiden muokkaamiseen
