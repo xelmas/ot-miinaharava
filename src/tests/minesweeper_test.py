@@ -3,6 +3,7 @@ from minesweeper import Minesweeper
 
 CELL_SIZE = 50
 
+
 class TestMinesweeper(unittest.TestCase):
     def setUp(self):
         self.board = Minesweeper(8, 9, 6, CELL_SIZE)
@@ -55,10 +56,10 @@ class TestMinesweeper(unittest.TestCase):
     def test_reveal_x_y_zero_returns_True(self):
         result = self.board.reveal(0, 0)
         self.assertEqual(result, True)
-    
+
     def test_reveal_mine_causes_game_over(self):
-        self.board.mines.add((2,2))
-        result = self.board.reveal(2,2)
+        self.board.mines.add((2, 2))
+        result = self.board.reveal(2, 2)
         self.assertEqual(result, False)
         game_over = self.board.game_over
         self.assertEqual(game_over, True)
