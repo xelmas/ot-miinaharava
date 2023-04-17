@@ -105,12 +105,19 @@ class Minesweeper:
         return self.num_mines
 
     def print_board(self):
+        print("   ", end="")
+        for x_cor in range(self.width):
+            print(x_cor, end="")
+        print()
+            
         for y_cor in range(len(self.board)):
+            print(y_cor,"|", end="")
             for x_cor in range(len(self.board[y_cor])):
                 if (x_cor, y_cor) in self.revealed:
                     print(self.board[y_cor][x_cor], end="")
                 else:
                     print("0", end="")
+            print("|", end="")
             print()
 
     def play(self):
