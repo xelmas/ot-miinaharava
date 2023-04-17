@@ -23,13 +23,14 @@ Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pel
 
 ```mermaid
  classDiagram
-      Minesweeper "1" --> "0..N" Tiles
+      Minesweeper "1" --> "0..N" Sprites
       class Minesweeper {
         width
         height
         mines
+        revealed_tiles_list
       }
-      class Tiles{
+      class Sprites{
         adjecent
         empty
         mine
