@@ -38,4 +38,5 @@ Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pel
 ```
 
 Luokka/pakkauskaavio, joka kuvaa Minesweeper-luokan ja muiden osien suhdetta:
-![pakkauskaavio-luokka](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkitehtuuri-pakkaus-luokka.png)
+
+![pakkauskaavio-luokka](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkkitehtuuri-pakkaus-luokat.png)
