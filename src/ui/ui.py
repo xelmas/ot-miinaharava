@@ -9,10 +9,7 @@ CELL_SIZE = 50
 
 class UI:
     def __init__(self) -> None:
-
-        # pylint: disable=no-member
         pygame.init()
-        # pylint: enable=no-member
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Main menu")
         self.window_surface = pygame.display.set_mode((800, 600))
@@ -110,16 +107,14 @@ class UI:
                                                            manager=self.manager, visible=1)
         self.set_level()
 
-    def play(self):
+    def start(self):
         display_height = self.game_height * CELL_SIZE
         display_width = self.game_width * CELL_SIZE
         display = pygame.display.set_mode((display_width, display_height))
         pygame.display.set_caption("Minesweeper")
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
-        # pylint: disable=no-member
         pygame.init()
-        # pylint: enable=no-member
         game.all_sprites.draw(display)
 
         running = True
@@ -127,14 +122,13 @@ class UI:
 
         while running:
             for event in pygame.event.get():
-                # pylint: disable=no-member
+
                 if event.type == pygame.QUIT:
-                    # pylint: enable=no-member
                     running = False
+
             pygame.display.update()
-        # pylint: disable=no-member
+
         pygame.quit()
-        # pylint: enable=no-member
 
         # Play game in terminal
         # winning condition: find all tiles that are not mines
@@ -148,15 +142,15 @@ class UI:
         while is_running:
             time_delta = self.clock.tick(60)/1000.0
             for event in pygame.event.get():
-                # pylint: disable=no-member
+
                 if event.type == pygame.QUIT:
                     is_running = False
-                # pylint: enable=no-member
 
                 if event.type == pygame_gui.UI_BUTTON_PRESSED:
                     if event.ui_element == self.play_button:
                         print("Starting the game")
-                        self.play()
+                        self.start()
+                        exit()
                     if event.ui_element == self.options_button:
                         print("options")
                         self.options()
