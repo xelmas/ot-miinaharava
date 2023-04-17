@@ -5,6 +5,7 @@ Kurssin **Ohjelmistotekniikka** harjoitustyötä varten luotu repositorio.
 Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä itse kustomoida. Käyttäjä voittaa pelin, mikäli onnistuu merkkaamaan kaikki piilossa olevat miinat. Käyttäjä häviää pelin, mikäli osuu miinaan.
 
 ## Dokumentaatio
+[Arkkitehtuurikuvaus](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/arkkitehtuuri.md) \
 [Tuntikirjanpito](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/tuntikirjanpito.md) \
 [Vaatimusmäärittely](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/vaatimusmaarittely.md) \
 [Changelog](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/changelog.md)
