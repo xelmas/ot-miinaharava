@@ -18,3 +18,24 @@ Käyttöliittymässä on main menu, jossa neljä eri toimintoa ja näkymää:
 UI-luokka vastaa siitä mikä näkymä näytetään käyttäjälle.
 
 ### Sovelluslogiikka
+
+Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pelin toiminnallisuuksista.
+
+```mermaid
+ classDiagram
+      Minesweeper "1" --> "0..N" Tiles
+      class Minesweeper {
+        width
+        height
+        mines
+      }
+      class Tiles{
+        adjecent
+        empty
+        mine
+        unrevelead
+      }
+```
+
+Luokka/pakkauskaavio, joka kuvaa Minesweeper-luokan ja muiden osien suhdetta:
+![pakkauskaavio-luokka](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkitehtuuri-pakkaus-luokka.png)
