@@ -19,7 +19,7 @@ UI-luokka vastaa siitä mikä näkymä näytetään käyttäjälle.
 
 ### Sovelluslogiikka
 
-Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pelin toiminnallisuuksista.
+Minesweeper-luokan olio vastaa pelin toiminnallisuuksista.
 
 ```mermaid
  classDiagram
@@ -38,6 +38,6 @@ Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pel
       }
 ```
 
-Luokka/pakkauskaavio, joka kuvaa Minesweeper-luokan ja muiden osien suhdetta:
+Luokka/pakkauskaavio, joka kuvaa Minesweeper-luokan suhdetta muihin osiin:
 
 ![pakkauskaavio-luokka](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkkitehtuuri-pakkaus-luokat.png)
