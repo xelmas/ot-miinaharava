@@ -34,7 +34,7 @@ Sovelluslogiikasta vastaa luokka Minesweeper. Minesweeper-luokan olio vastaa pel
         adjecent
         empty
         mine
-        unrevelead
+        unrevealed
       }
 ```
 
