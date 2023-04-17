@@ -2,7 +2,8 @@
 
 ### Rakenne
 Ohjelman pakkausrakenne:
-![alt text](https://github.com/xelmas/ot-miinaharava/tree/main/dokumentaatio/kuvat/arkkitehtuuri-pakkaus.png)
+
+![pakkauskaavio](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkitehtuuri-pakkaus.png)
 
 Pakkaus ui vastaa käyttöliittymästä, minesweeper vastaa sovelluslogiikasta ja sprites vastaa pelin graafisista elementeistä.
 
