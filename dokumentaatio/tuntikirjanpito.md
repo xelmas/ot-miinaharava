@@ -11,5 +11,5 @@
 |   13.4.       |       7       | Pelilogiikan sisällyttäminen osaksi projektia |
 |   16.4.       |       6       | Käyttöliittymän lisääminen ja testit |
 |   17.4.       |       1       | Pakkauskaavion luominen ja dokumenttien päivitys|
-|   20.4.       |       3       | Pelin toiminta graafisessa ikkunassa |
-|   yht.        |       39      |               |
+|   20.4.       |       4       | Pelin toiminta graafisessa ikkunassa |
+|   yht.        |       40      |               |

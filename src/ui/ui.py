@@ -4,8 +4,7 @@ from minesweeper import Minesweeper
 
 LEVELS = {"Beginner": (9, 9, 10), "Intermediate": (
     16, 16, 40), "Expert": (16, 30, 99), "Custom": (15, 15, 15)}
-CELL_SIZE = 41
-
+CELL_SIZE = 31
 
 class UI:
     def __init__(self) -> None:
@@ -108,6 +107,14 @@ class UI:
 
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+50), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_height}", visible=1, object_id="height")
+            
+            pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+                (70, 340), (300, 70)), text="Write number and press enter:", manager=self.manager)
+
+            pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+100), (150, 50)),
+                                                manager=self.manager, placeholder_text=f"{self.game_mines}", visible=1, object_id="mines")
+        
+
         self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
@@ -120,9 +127,9 @@ class UI:
             (350, 100), (120, 70)), text="Credits", manager=self.manager)
 
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (70, 110), (500, 200)), text="Icons by Lorc (https://lorcblog.blogspot.com) under CC BY 3.0", manager=self.manager)
+                (50, 110), (650, 200)), text="Icons by Lorc (https://lorcblog.blogspot.com) under CC BY 3.0 via game-icons.net", manager=self.manager)
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (70, 140), (466, 200)), text="Game by xelmas (https://github.com/xelmas/ot-miinaharava)", manager=self.manager)
+                (50, 140), (466, 200)), text="Game by xelmas (https://github.com/xelmas/ot-miinaharava)", manager=self.manager)
 
         self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
                                                            text="To main menu",
@@ -222,6 +229,11 @@ class UI:
                         if str(height).isdigit() and int(height) > 0:
                             print("height", height)
                             self.set_game_height(int(height))
+                    if event.ui_object_id == "mines":
+                        mines = event.text
+                        if str(mines).isdigit() and int(mines) > 0:
+                            print("mines")
+                            self.set_game_mines(int(mines))
 
                 self.manager.process_events(event)
 
