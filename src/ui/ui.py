@@ -4,7 +4,7 @@ from minesweeper import Minesweeper
 
 LEVELS = {"Beginner": (9, 9, 10), "Intermediate": (
     16, 16, 40), "Expert": (16, 30, 99), "Custom": (15, 15, 15)}
-CELL_SIZE = 50
+CELL_SIZE = 41
 
 
 class UI:
@@ -125,15 +125,35 @@ class UI:
 
                 if event.type == pygame.QUIT:
                     running = False
+                    pygame.quit()
+                    return
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    x_cor, y_cor = pygame.mouse.get_pos()
+                    x_cor = x_cor // game.cell_size
+                    y_cor = y_cor // game.cell_size
+
+                    if event.button == 1:  # left click
+                        game.reveal(x_cor, y_cor)
+                        game._initialize_sprites()
+                        game.all_sprites.draw(display)
+                        pygame.display.update()
+                        if game.game_over:
+                            print("you lose")
+                            pygame.time.wait(1000)
+                            return
+
+                    if event.button == 3:  # right click
+                        game.add_flag(x_cor, y_cor)
+                        game._initialize_sprites()
+                        game.all_sprites.draw(display)
+                        pygame.display.update()
+
+                        if game.game_over:
+                            print("you won")
+                            pygame.time.wait(1000)
+                            return
 
             pygame.display.update()
-
-        pygame.quit()
-
-        # Play game in terminal
-        # winning condition: find all tiles that are not mines
-        # losing condition: reveal a mine tile
-        game.play()
 
     def menu_loop(self):
         self.main_menu()

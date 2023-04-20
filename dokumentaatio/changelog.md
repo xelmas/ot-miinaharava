@@ -12,3 +12,6 @@
 - Testattu Minesweeper-luokan reveal-funktion toiminta
 - Luotu käyttöliittymäluokka UI
 - Päävalikkoon luotu neljä eri toimintoa, asetuksiin luotu toiminnallisuus kentän dimensioiden muokkaamiseen
+
+## viikko 5
+- Pelin graafinen toteutus

@@ -4,6 +4,7 @@ from sprites.mine import Mine
 from sprites.empty import Empty
 from sprites.adjecent import Adjecent
 from sprites.unrevealed import Unrevealed
+from sprites.flag import Flag
 
 
 class Minesweeper:
@@ -14,6 +15,7 @@ class Minesweeper:
         self.num_mines = num_mines
         self.mines = set()
         self.revealed = set()
+        self.flagged = set()
         self.game_over = False
 
         self.board = [["" for _ in range(self.width)]
@@ -23,6 +25,7 @@ class Minesweeper:
         self.empty_tiles = pygame.sprite.Group()
         self.adjecent_tiles = pygame.sprite.Group()
         self.unrevealed_tiles = pygame.sprite.Group()
+        self.flag_tiles = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
 
         self.place_mines()
@@ -57,6 +60,15 @@ class Minesweeper:
                     result.append((new_x, new_y))
         return result
 
+    def add_flag(self, x_cor, y_cor):
+        if (x_cor, y_cor) not in self.flagged:
+            self.flagged.add((x_cor, y_cor))
+        if sorted(self.flagged) == sorted(self.mines):
+            self.game_over = True
+
+    def get_flagged(self):
+        return self.flagged
+
     def get_num_adjacent_mines(self, x_cor, y_cor):
         count = 0
         neighbors = self.get_neighbors(x_cor, y_cor)
@@ -75,12 +87,12 @@ class Minesweeper:
             print("Coordinate overflow")
             return False
 
+        if (x_cor, y_cor) not in self.revealed:
+            self.revealed.add((x_cor, y_cor))
+
         if (x_cor, y_cor) in self.mines:
             self.game_over = True
             return False
-
-        if (x_cor, y_cor) not in self.revealed:
-            self.revealed.add((x_cor, y_cor))
 
         num_all_tiles = self.width * self.height - self.num_mines
         if len(self.revealed) == num_all_tiles:
@@ -109,9 +121,9 @@ class Minesweeper:
         for x_cor in range(self.width):
             print(x_cor, end="")
         print()
-            
+
         for y_cor in range(len(self.board)):
-            print(y_cor,"|", end="")
+            print(y_cor, "|", end="")
             for x_cor in range(len(self.board[y_cor])):
                 if (x_cor, y_cor) in self.revealed:
                     print(self.board[y_cor][x_cor], end="")
@@ -156,6 +168,9 @@ class Minesweeper:
                         self.empty_tiles.add(Empty(norm_x, norm_y))
                     else:
                         self.adjecent_tiles.add(Adjecent(norm_x, norm_y, cell))
+
+                elif (x_cor, y_cor) in self.flagged:
+                    self.flag_tiles.add(Flag(norm_x, norm_y))
                 else:
                     self.unrevealed_tiles.add(Unrevealed(norm_x, norm_y))
 
@@ -163,5 +178,6 @@ class Minesweeper:
             self.mine_tiles,
             self.empty_tiles,
             self.adjecent_tiles,
-            self.unrevealed_tiles
+            self.unrevealed_tiles,
+            self.flag_tiles
         )
