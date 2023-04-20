@@ -34,8 +34,11 @@ class UI:
         self.leaderboard_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+100), (120, 50)),
                                                                text="Leaderboard",
                                                                manager=self.manager, visible=0)
+        self.credits_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (120, 50)),
+                                                        text="Credits",
+                                                        manager=self.manager, visible=0)
 
-        self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (120, 50)),
+        self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+200), (120, 50)),
                                                         text="Quit",
                                                         manager=self.manager, visible=0)
 
@@ -78,8 +81,11 @@ class UI:
         self.leaderboard_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+100), (150, 50)),
                                                                text="Leaderboard",
                                                                manager=self.manager, visible=1)
+        self.credits_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (150, 50)),
+                                                        text="Credits",
+                                                        manager=self.manager, visible=1)
 
-        self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (150, 50)),
+        self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+200), (150, 50)),
                                                         text="Quit",
                                                         manager=self.manager, visible=1)
 
@@ -106,7 +112,21 @@ class UI:
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
         self.set_level()
+    
+    def credits(self):
+        self.manager.clear_and_reset()
+        pygame.display.set_caption("Credits")
+        pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+            (350, 100), (120, 70)), text="Credits", manager=self.manager)
 
+        pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+                (70, 110), (500, 200)), text="Icons by Lorc (https://lorcblog.blogspot.com) under CC BY 3.0", manager=self.manager)
+        pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
+                (70, 140), (466, 200)), text="Game by xelmas (https://github.com/xelmas/ot-miinaharava)", manager=self.manager)
+
+        self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
+                                                           text="To main menu",
+                                                           manager=self.manager, visible=1)
     def start(self):
         display_height = self.game_height * CELL_SIZE
         display_width = self.game_width * CELL_SIZE
@@ -180,6 +200,8 @@ class UI:
                         self.main_menu()
                     if event.ui_element == self.leaderboard_button:
                         print("showing leaderboard")
+                    if event.ui_element == self.credits_button:
+                        self.credits()
                     if event.ui_element == self.quit_button:
                         print("Quit the program")
                         is_running = False

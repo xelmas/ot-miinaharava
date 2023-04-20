@@ -15,3 +15,4 @@
 
 ## viikko 5
 - Pelin graafinen toteutus
+- Lisätty credits-osio menuun, jossa ilmoitettu käytettyjen kuvien tekijä
