@@ -99,17 +99,17 @@ class UI:
 
         if self.level == "Custom":
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (70, 240), (300, 70)), text="Write number and press enter:", manager=self.manager)
+                (45, 240), (290, 70)), text="Give width (number) and press enter:", manager=self.manager)
+            
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_width}", visible=1, object_id="width")
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (70, 290), (300, 70)), text="Write number and press enter:", manager=self.manager)
-
+                (45, 290), (295, 70)), text="Give height (number) and press enter:", manager=self.manager)
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+50), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_height}", visible=1, object_id="height")
             
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (70, 340), (300, 70)), text="Write number and press enter:", manager=self.manager)
+                (45, 340), (290, 70)), text="Give mines (number) and press enter:", manager=self.manager)
 
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+100), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_mines}", visible=1, object_id="mines")
