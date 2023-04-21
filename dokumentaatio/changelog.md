@@ -16,7 +16,8 @@
 ## viikko 5
 - Pelin graafinen toteutus
 - Lisätty uusi flag-sprite ja kuva.
-- Lisätty toiminnallisuus ruutujen liputtamiseen
+- Lisätty toiminnallisuus ruutujen liputtamiseen ja liputuksen poistoon
 - Lisätty credits-osio menuun, jossa ilmoitettu käytettyjen kuvien tekijä
 - Lisätty options-ikkunaan mahdollisuus muuttaa miinojen määrää pelissä
 - Assets-kansion kuvien kokoa pienennetty kokoon 30x30
+- Lisätty ajanotto (timer), toimii vain tasolla beginner oikein

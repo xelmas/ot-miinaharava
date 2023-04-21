@@ -12,4 +12,5 @@
 |   16.4.       |       6       | Käyttöliittymän lisääminen ja testit |
 |   17.4.       |       1       | Pakkauskaavion luominen ja dokumenttien päivitys|
 |   20.4.       |       4       | Pelin toiminta graafisessa ikkunassa |
-|   yht.        |       40      |               |
+|   21.4.       |       2       | Graafinen ajastin näkyy pelin vieressä |
+|   yht.        |       43      |               |
