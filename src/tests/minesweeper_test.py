@@ -1,7 +1,7 @@
 import unittest
 from minesweeper import Minesweeper
 
-CELL_SIZE = 50
+CELL_SIZE = 31
 
 
 class TestMinesweeper(unittest.TestCase):
