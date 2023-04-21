@@ -16,6 +16,8 @@ class Minesweeper:
         self.mines = set()
         self.revealed = set()
         self.flagged = set()
+        self.moves = 0
+        self.time_passed = 0
         self.game_over = False
 
         self.board = [["" for _ in range(self.width)]
@@ -63,11 +65,20 @@ class Minesweeper:
     def add_flag(self, x_cor, y_cor):
         if (x_cor, y_cor) not in self.flagged:
             self.flagged.add((x_cor, y_cor))
-        if sorted(self.flagged) == sorted(self.mines):
-            self.game_over = True
+        else:
+            self.remove_flag(x_cor, y_cor)
 
     def get_flagged(self):
         return self.flagged
+
+    def remove_flag(self, x_cor, y_cor):
+        self.flagged.remove((x_cor, y_cor))
+
+    def set_time_passed(self, time_passed_seconds):
+        self.time_passed = time_passed_seconds
+
+    def get_time_passed(self):
+        return self.time_passed
 
     def get_num_adjacent_mines(self, x_cor, y_cor):
         count = 0
@@ -132,6 +143,32 @@ class Minesweeper:
             print("|", end="")
             print()
 
+    def add_move(self):
+        self.moves += 1
+
+    def get_moves(self):
+        return self.moves
+
+    def show_mines(self):
+        for x_cor, y_cor in self.mines:
+            self.revealed.add((x_cor, y_cor))
+
+    def is_won(self):
+        num_all_tiles = self.width * self.height - self.num_mines
+        if len(self.revealed) == num_all_tiles:
+            print("You won!")
+            self.show_mines()
+            return True
+        return False
+
+    def is_lost(self):
+        if self.game_over:
+            print("you lose")
+            self.show_mines()
+            return True
+        return False
+
+    # play game in terminal
     def play(self):
 
         while not self.game_over:
@@ -151,6 +188,11 @@ class Minesweeper:
         else:
             print("Game over")
 
+    def update_game(self, display):
+        self._initialize_sprites()
+        self.all_sprites.draw(display)
+        pygame.display.update()
+
     def _initialize_sprites(self):
         height = len(self.board)
         width = len(self.board[0])
@@ -166,7 +208,7 @@ class Minesweeper:
                         self.mine_tiles.add(Mine(norm_x, norm_y))
                     elif cell == " ":
                         self.empty_tiles.add(Empty(norm_x, norm_y))
-                    else:
+                    elif cell in [1, 2, 3, 4, 5, 6, 7, 8]:
                         self.adjecent_tiles.add(Adjecent(norm_x, norm_y, cell))
 
                 elif (x_cor, y_cor) in self.flagged:

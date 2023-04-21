@@ -6,6 +6,7 @@ LEVELS = {"Beginner": (9, 9, 10), "Intermediate": (
     16, 16, 40), "Expert": (16, 30, 99), "Custom": (15, 15, 15)}
 CELL_SIZE = 31
 
+
 class UI:
     def __init__(self) -> None:
         pygame.init()
@@ -34,8 +35,8 @@ class UI:
                                                                text="Leaderboard",
                                                                manager=self.manager, visible=0)
         self.credits_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (120, 50)),
-                                                        text="Credits",
-                                                        manager=self.manager, visible=0)
+                                                           text="Credits",
+                                                           manager=self.manager, visible=0)
 
         self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+200), (120, 50)),
                                                         text="Quit",
@@ -81,8 +82,8 @@ class UI:
                                                                text="Leaderboard",
                                                                manager=self.manager, visible=1)
         self.credits_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+150), (150, 50)),
-                                                        text="Credits",
-                                                        manager=self.manager, visible=1)
+                                                           text="Credits",
+                                                           manager=self.manager, visible=1)
 
         self.quit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200+200), (150, 50)),
                                                         text="Quit",
@@ -100,26 +101,25 @@ class UI:
         if self.level == "Custom":
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
                 (45, 240), (290, 70)), text="Give width (number) and press enter:", manager=self.manager)
-            
+
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_width}", visible=1, object_id="width")
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (45, 290), (295, 70)), text="Give height (number) and press enter:", manager=self.manager)
+                (45, 290), (300, 70)), text="Give height (number) and press enter:", manager=self.manager)
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+50), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_height}", visible=1, object_id="height")
-            
+
             pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
                 (45, 340), (290, 70)), text="Give mines (number) and press enter:", manager=self.manager)
 
             pygame_gui.elements.UITextEntryLine(relative_rect=pygame.Rect((350, 250+100), (150, 50)),
                                                 manager=self.manager, placeholder_text=f"{self.game_mines}", visible=1, object_id="mines")
-        
 
         self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
         self.set_level()
-    
+
     def credits(self):
         self.manager.clear_and_reset()
         pygame.display.set_caption("Credits")
@@ -127,31 +127,45 @@ class UI:
             (350, 100), (120, 70)), text="Credits", manager=self.manager)
 
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (50, 110), (650, 200)), text="Icons by Lorc (https://lorcblog.blogspot.com) under CC BY 3.0 via game-icons.net", manager=self.manager)
+            (50, 110), (650, 200)), text="Icons by Lorc (https://lorcblog.blogspot.com) under CC BY 3.0 via game-icons.net", manager=self.manager)
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-                (50, 140), (466, 200)), text="Game by xelmas (https://github.com/xelmas/ot-miinaharava)", manager=self.manager)
+            (50, 140), (466, 200)), text="Game by xelmas (https://github.com/xelmas/ot-miinaharava)", manager=self.manager)
 
         self.to_menu_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((90, 50), (200, 40)),
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
+
     def start(self):
-        display_height = self.game_height * CELL_SIZE
-        display_width = self.game_width * CELL_SIZE
+        display_height = self.game_height * CELL_SIZE + 200
+        display_width = self.game_width * CELL_SIZE + 200
         display = pygame.display.set_mode((display_width, display_height))
+
         pygame.display.set_caption("Minesweeper")
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
         pygame.init()
+
+        # for timer
+        font = pygame.font.SysFont(None, 48)
+        timer = pygame.time.Clock()
+        start = pygame.time.get_ticks()
+
         game.all_sprites.draw(display)
+        game_over = False
+        # print("level", self.get_level_parameters())
 
-        running = True
-        print("level", self.get_level_parameters())
+        while not game_over:
+            text_hide_prev_num = pygame.Rect(300, 10, 200, 50)
+            pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
+            time_passed = pygame.time.get_ticks() - start
+            time_passed_seconds = round(time_passed / 1000)
+            text = font.render(
+                f"Time: {time_passed_seconds}", True, (255, 255, 255))
+            display.blit(text, (300, 10))
 
-        while running:
             for event in pygame.event.get():
-
                 if event.type == pygame.QUIT:
-                    running = False
+                    game_over = True
                     pygame.quit()
                     return
                 if event.type == pygame.MOUSEBUTTONDOWN:
@@ -161,26 +175,31 @@ class UI:
 
                     if event.button == 1:  # left click
                         game.reveal(x_cor, y_cor)
-                        game._initialize_sprites()
-                        game.all_sprites.draw(display)
+                        game.add_move()
+                        game.update_game(display)
                         pygame.display.update()
-                        if game.game_over:
-                            print("you lose")
+                        if game.is_won():
+                            game.set_time_passed(time_passed_seconds)
+                            print("time passed:",
+                                  game.get_time_passed(), "second(s)")
+                            game.update_game(display)
+                            pygame.time.wait(1000)
+                            return
+
+                        elif game.is_lost():
+                            game.set_time_passed(time_passed_seconds)
+                            print("time passed:",
+                                  game.get_time_passed(), "second(s)")
+                            game.update_game(display)
                             pygame.time.wait(1000)
                             return
 
                     if event.button == 3:  # right click
                         game.add_flag(x_cor, y_cor)
-                        game._initialize_sprites()
-                        game.all_sprites.draw(display)
-                        pygame.display.update()
-
-                        if game.game_over:
-                            print("you won")
-                            pygame.time.wait(1000)
-                            return
+                        game.update_game(display)
 
             pygame.display.update()
+            timer.tick(60)
 
     def menu_loop(self):
         self.main_menu()
