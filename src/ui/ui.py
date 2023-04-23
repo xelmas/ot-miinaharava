@@ -136,6 +136,7 @@ class UI:
                                                            manager=self.manager, visible=1)
 
     def start(self):
+
         display_height = self.game_height * CELL_SIZE + 200
         display_width = self.game_width * CELL_SIZE + 200
         display = pygame.display.set_mode((display_width, display_height))
@@ -143,25 +144,32 @@ class UI:
         pygame.display.set_caption("Minesweeper")
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
-        pygame.init()
 
+        pygame.init()
         # for timer
         font = pygame.font.SysFont(None, 48)
         timer = pygame.time.Clock()
         start = pygame.time.get_ticks()
-
         game.all_sprites.draw(display)
         game_over = False
-        # print("level", self.get_level_parameters())
 
         while not game_over:
-            text_hide_prev_num = pygame.Rect(300, 10, 200, 50)
+
+            text_hide_prev_num = pygame.Rect(32 * self.game_width, 10, 200, 50)
             pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
             time_passed = pygame.time.get_ticks() - start
             time_passed_seconds = round(time_passed / 1000)
             text = font.render(
                 f"Time: {time_passed_seconds}", True, (255, 255, 255))
-            display.blit(text, (300, 10))
+            display.blit(text, (32 * self.game_width, 10))
+
+            text = font.render(
+                f"Moves: {game.get_moves()}", True, (255, 255, 255))
+
+            text_hide_prev_num = pygame.Rect(32 * self.game_width, 40, 200, 50)
+            pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
+
+            display.blit(text, (32 * self.game_width, 40))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -208,7 +216,6 @@ class UI:
         while is_running:
             time_delta = self.clock.tick(60)/1000.0
             for event in pygame.event.get():
-
                 if event.type == pygame.QUIT:
                     is_running = False
 
