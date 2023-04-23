@@ -13,4 +13,5 @@
 |   17.4.       |       1       | Pakkauskaavion luominen ja dokumenttien päivitys|
 |   20.4.       |       4       | Pelin toiminta graafisessa ikkunassa |
 |   21.4.       |       2       | Graafinen ajastin näkyy pelin vieressä |
-|   yht.        |       43      |               |
+|   22.4.       |       3       | Graafiseen ikkunaan lisätty siirtojen laskuri, lisätty testejä|
+|   yht.        |       46      |               |

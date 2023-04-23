@@ -20,4 +20,7 @@
 - Lisätty credits-osio menuun, jossa ilmoitettu käytettyjen kuvien tekijä
 - Lisätty options-ikkunaan mahdollisuus muuttaa miinojen määrää pelissä
 - Assets-kansion kuvien kokoa pienennetty kokoon 30x30
-- Lisätty ajanotto (timer), toimii vain tasolla beginner oikein
+- Lisätty ajanotto (timer)
+- Lisätty laskuri avattujen ruutujen määrälle
+- Testattu, ett minesweeper-luokan liputus ja liputuksen poisto toimii oikein
+- Testattu, että minesweeper-luokan is_lost ja is_won funktiot toimii oikein
