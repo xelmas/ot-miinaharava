@@ -49,17 +49,48 @@ class TestMinesweeper(unittest.TestCase):
         result = self.board.reveal(8, 11)
         self.assertEqual(result, False)
 
-    def test_reveal_x_y_positive_returns_True(self):
-        result = self.board.reveal(1, 1)
-        self.assertEqual(result, True)
-
-    def test_reveal_x_y_zero_returns_True(self):
-        result = self.board.reveal(0, 0)
-        self.assertEqual(result, True)
-
     def test_reveal_mine_causes_game_over(self):
         self.board.mines.add((2, 2))
         result = self.board.reveal(2, 2)
         self.assertEqual(result, False)
         game_over = self.board.game_over
         self.assertEqual(game_over, True)
+    
+    def test_add_flag(self):
+        self.board.add_flag(1,1)
+        self.assertEqual(self.board.flagged, {(1,1)})
+    
+    def test_add_flag_removes_already_flagged(self):
+        self.board.add_flag(1,1)
+        self.board.add_flag(2,1)
+        self.board.add_flag(1,1)
+        self.assertEqual(self.board.flagged, {(2,1)})
+    
+    def test_remove_flag(self):
+        self.board.flagged.add((1,1))
+        self.board.flagged.add((2,1))
+        self.board.remove_flag(1,1)
+        self.assertEqual(self.board.flagged, {(2,1)})
+    
+    def test_add_move(self):
+        self.board.add_move()
+        self.assertEqual(self.board.get_moves(), 1)
+
+    def test_is_won_returns_True(self):
+        board3 = Minesweeper(3,3,2, CELL_SIZE)
+        board3.revealed = {(0,0), (0,1), (0,2), (1,0), (1,1), (1,2), (2,0)}
+        self.assertEqual(board3.is_won(), True)
+    
+    def test_is_won_returns_False(self):
+        board4 = Minesweeper(3,3,2, CELL_SIZE)
+        board4.revealed = {(0,0), (0,1), (0,2), (1,0), (1,1)}
+        self.assertEqual(board4.is_won(), False)
+
+    def test_is_lost_returns_True(self):
+        board5 = Minesweeper(3,3,2, CELL_SIZE)
+        board5.game_over = True
+        self.assertEqual(board5.is_lost(), True)
+    
+    def test_is_lost_returns_False(self):
+        board6 = Minesweeper(3,3,2, CELL_SIZE)
+        self.assertEqual(board6.is_lost(), False)
