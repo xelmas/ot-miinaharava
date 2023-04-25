@@ -42,33 +42,6 @@ class UI:
                                                         text="Quit",
                                                         manager=self.manager, visible=0)
 
-    def set_level(self):
-        self.game_width, self.game_height, self.game_mines = LEVELS[self.level]
-
-    def get_level_parameters(self):
-        return "width", self.game_width, "height", self.game_height, "mines", self.game_mines
-
-    def get_level(self):
-        return self.level
-
-    def set_game_width(self, game_width):
-        self.game_width = game_width
-
-    def set_game_height(self, game_height):
-        self.game_height = game_height
-
-    def set_game_mines(self, game_mines):
-        self.game_mines = game_mines
-
-    def get_game_width(self):
-        return self.game_width
-
-    def get_game_height(self):
-        return self.game_height
-
-    def get_game_mines(self):
-        return self.game_mines
-
     def main_menu(self):
 
         pygame.display.set_caption("Main menu")
@@ -90,7 +63,6 @@ class UI:
                                                         manager=self.manager, visible=1)
 
     def options(self):
-
         self.manager.clear_and_reset()
         pygame.display.set_caption("Options")
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
@@ -191,7 +163,6 @@ class UI:
                         game.set_time_passed(time_passed_seconds)
                         print("time passed:",
                               game.get_time_passed(), "second(s)")
-                        print("you lose")
                         self.draw_game_over_info_lost(display)
                         game.update_game(display)
                         self.game_over = True
@@ -210,7 +181,6 @@ class UI:
         return display
 
     def start(self):
-
         display = self.initialize_game_window()
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
@@ -287,3 +257,15 @@ class UI:
             self.manager.draw_ui(self.window_surface)
 
             pygame.display.update()
+
+    def set_level(self):
+        self.game_width, self.game_height, self.game_mines = LEVELS[self.level]
+
+    def set_game_width(self, game_width):
+        self.game_width = game_width
+
+    def set_game_height(self, game_height):
+        self.game_height = game_height
+
+    def set_game_mines(self, game_mines):
+        self.game_mines = game_mines

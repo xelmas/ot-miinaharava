@@ -38,11 +38,11 @@ class TestMinesweeper(unittest.TestCase):
     def test_is_lost_returns_False(self):
         game = Minesweeper(3, 3, 2, CELL_SIZE)
         self.assertEqual(game.is_lost(), False)
-    
+
     def test_set_time_passed(self):
         self.game.set_time_passed(8)
         self.assertEqual(self.game.get_time_passed(), 8)
-    
+
     def test_get_time_passed(self):
         self.game.set_time_passed(9)
         self.assertEqual(self.game.get_time_passed(), 9)
