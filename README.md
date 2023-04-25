@@ -13,7 +13,7 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 ## Asennusohjeet
 
 1. Varmista, että poetry on asennettu komennolla ```poetry --version```
-2. Kloonaa repositorio komennolla ```git clone```
+2. Kloonaa repositorio komennolla ```git clone``` tai lataa lähdekoodi [releasen](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) kautta
 3. Siirry hakemistoon ja asenna riippuvuudet komennolla ```poetry install```
 
 ## Komentorivitoiminnot
