@@ -21,6 +21,10 @@
 - Lisätty options-ikkunaan mahdollisuus muuttaa miinojen määrää pelissä
 - Assets-kansion kuvien kokoa pienennetty kokoon 30x30
 - Lisätty ajanotto (timer)
+- Refaktoroitu koodia. Tapahtumakäsittelijät siirretty omiin funktioihin. 
+- Luotu oma luokka Board, joka vastaa pelikentästä
 - Lisätty laskuri avattujen ruutujen määrälle
-- Testattu, ett minesweeper-luokan liputus ja liputuksen poisto toimii oikein
-- Testattu, että minesweeper-luokan is_lost ja is_won funktiot toimii oikein
+- Testattu, että Board-luokan liputus ja liputuksen poisto toimii oikein
+- Testattu, että Minesweeper-luokan is_lost(), is_won(), set_time_passed() ja get_time_passed funktiot toimii oikein
+- Luotu sekvenssikaavio pelin aloittamisesta
+- Lisätty teksti kun peli päättyy (voitto tai häviö)

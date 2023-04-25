@@ -14,4 +14,6 @@
 |   20.4.       |       4       | Pelin toiminta graafisessa ikkunassa |
 |   21.4.       |       2       | Graafinen ajastin näkyy pelin vieressä |
 |   22.4.       |       3       | Graafiseen ikkunaan lisätty siirtojen laskuri, lisätty testejä|
-|   yht.        |       46      |               |
+|   23.4.       |       2       | Refaktorointi |
+|   25.4.       |       5       | Sekvenssikaavio ja dokumenttien päivitys, pelin päättymisen ilmoitus, lisätty testejä |
+|   yht.        |       52      |               |

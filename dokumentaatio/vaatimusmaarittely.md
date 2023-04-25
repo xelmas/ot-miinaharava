@@ -18,6 +18,7 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
     - Siirtojen lukumäärä kasvaa
 - Mikäli avattu ruutu on miina, peli päättyy  (Tehty)
     - Ajanotto lopetetaan
+- Kun peli päättyy, ilmoitetaan käyttäjälle oliko peli voitto vai häviö (Tehty)
 
 ### Asetukset
 - Käyttäjä voi valita neljästä eri vaihtoehdosta vaikeustason: Beginner, Intermediate, Expert tai Custom. (Tehty)
