@@ -135,136 +135,155 @@ class UI:
                                                            text="To main menu",
                                                            manager=self.manager, visible=1)
 
-    def start(self):
+    def draw_timer_and_counter(self, display, time_passed_seconds, game):
+        font = pygame.font.SysFont(None, 35)
+        text_hide_prev_num = pygame.Rect(32 * self.game_width, 10, 200, 50)
+        pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
+        text_hide_prev_num = pygame.Rect(32 * self.game_width, 40, 200, 50)
+        pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
 
+        text = font.render(
+            f"Time: {time_passed_seconds}", True, (255, 255, 255))
+        display.blit(text, (32 * self.game_width, 10))
+        text = font.render(
+            f"Moves: {game.get_moves()}", True, (255, 255, 255))
+        display.blit(text, (32 * self.game_width, 40))
+
+    def draw_game_over_info_won(self, display):
+        font = pygame.font.SysFont(None, 32)
+        text = font.render(
+            f"You won!", True, (255, 255, 255))
+        display.blit(text, (20, 32*self.game_height))
+
+    def draw_game_over_info_lost(self, display):
+        font = pygame.font.SysFont(None, 32)
+        text = font.render(
+            f"You lose", True, (255, 255, 255))
+        display.blit(text, (20, 32*self.game_height))
+
+    def handle_game_events(self, game, display, time_passed_seconds):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.game_over = True
+                pygame.quit()
+                return
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                x_cor, y_cor = pygame.mouse.get_pos()
+                x_cor = x_cor // game.cell_size
+                y_cor = y_cor // game.cell_size
+
+                if event.button == 1:  # left click
+                    game.board.reveal(x_cor, y_cor)
+                    game.add_move()
+                    game.update_game(display)
+                    pygame.display.update()
+                    if game.is_won():
+                        game.set_time_passed(time_passed_seconds)
+                        print("time passed:",
+                              game.get_time_passed(), "second(s)")
+                        self.draw_game_over_info_won(display)
+                        game.update_game(display)
+                        self.game_over = True
+
+                        pygame.time.wait(1000)
+
+                    elif game.is_lost():
+                        game.set_time_passed(time_passed_seconds)
+                        print("time passed:",
+                              game.get_time_passed(), "second(s)")
+                        print("you lose")
+                        self.draw_game_over_info_lost(display)
+                        game.update_game(display)
+                        self.game_over = True
+                        pygame.time.wait(1000)
+
+                elif event.button == 3:  # right click
+                    game.board.add_flag(x_cor, y_cor)
+                    game.update_game(display)
+
+    def initialize_game_window(self):
         display_height = self.game_height * CELL_SIZE + 200
         display_width = self.game_width * CELL_SIZE + 200
         display = pygame.display.set_mode((display_width, display_height))
-
         pygame.display.set_caption("Minesweeper")
+        pygame.init()
+        return display
+
+    def start(self):
+
+        display = self.initialize_game_window()
         game = Minesweeper(self.game_width, self.game_height,
                            self.game_mines, CELL_SIZE)
-
-        pygame.init()
-        # for timer
-        font = pygame.font.SysFont(None, 48)
+        # initialize timer
         timer = pygame.time.Clock()
-        start = pygame.time.get_ticks()
+        start_time = pygame.time.get_ticks()
         game.all_sprites.draw(display)
-        game_over = False
+        self.game_over = False
 
-        while not game_over:
-
-            text_hide_prev_num = pygame.Rect(32 * self.game_width, 10, 200, 50)
-            pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
-            time_passed = pygame.time.get_ticks() - start
+        while not self.game_over:
+            time_passed = pygame.time.get_ticks() - start_time
             time_passed_seconds = round(time_passed / 1000)
-            text = font.render(
-                f"Time: {time_passed_seconds}", True, (255, 255, 255))
-            display.blit(text, (32 * self.game_width, 10))
-
-            text = font.render(
-                f"Moves: {game.get_moves()}", True, (255, 255, 255))
-
-            text_hide_prev_num = pygame.Rect(32 * self.game_width, 40, 200, 50)
-            pygame.draw.rect(display, (0, 0, 0), text_hide_prev_num)
-
-            display.blit(text, (32 * self.game_width, 40))
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    game_over = True
-                    pygame.quit()
-                    return
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    x_cor, y_cor = pygame.mouse.get_pos()
-                    x_cor = x_cor // game.cell_size
-                    y_cor = y_cor // game.cell_size
-
-                    if event.button == 1:  # left click
-                        game.reveal(x_cor, y_cor)
-                        game.add_move()
-                        game.update_game(display)
-                        pygame.display.update()
-                        if game.is_won():
-                            game.set_time_passed(time_passed_seconds)
-                            print("time passed:",
-                                  game.get_time_passed(), "second(s)")
-                            game.update_game(display)
-                            pygame.time.wait(1000)
-                            return
-
-                        elif game.is_lost():
-                            game.set_time_passed(time_passed_seconds)
-                            print("time passed:",
-                                  game.get_time_passed(), "second(s)")
-                            game.update_game(display)
-                            pygame.time.wait(1000)
-                            return
-
-                    if event.button == 3:  # right click
-                        game.add_flag(x_cor, y_cor)
-                        game.update_game(display)
-
+            self.draw_timer_and_counter(display, time_passed_seconds, game)
+            self.handle_game_events(game, display, time_passed_seconds)
             pygame.display.update()
             timer.tick(60)
 
+    def handle_text_entry(self, event):
+        if event.ui_object_id == "width":
+            width = event.text
+            if str(width).isdigit() and int(width) > 0:
+                self.set_game_width(int(width))
+        if event.ui_object_id == "height":
+            height = event.text
+            if str(height).isdigit() and int(height) > 0:
+                self.set_game_height(int(height))
+        if event.ui_object_id == "mines":
+            mines = event.text
+            if str(mines).isdigit() and int(mines) > 0:
+                self.set_game_mines(int(mines))
+
+    def handle_menu_change(self, event):
+        self.level = event.text
+        self.options()
+
+    def handle_menu_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.is_running = False
+
+            elif event.type == pygame_gui.UI_BUTTON_PRESSED:
+                if event.ui_element == self.play_button:
+                    self.start()
+                    exit()
+                if event.ui_element == self.options_button:
+                    self.options()
+                if event.ui_element == self.to_menu_button:
+                    self.manager.clear_and_reset()
+                    self.main_menu()
+                if event.ui_element == self.leaderboard_button:
+                    pass
+                if event.ui_element == self.credits_button:
+                    self.credits()
+                if event.ui_element == self.quit_button:
+                    self.is_running = False
+
+            elif event.type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED:
+                self.handle_menu_change(event)
+
+            elif event.type == pygame_gui.UI_TEXT_ENTRY_FINISHED and self.level == "Custom":
+                self.handle_text_entry(event)
+
+            self.manager.process_events(event)
+
     def menu_loop(self):
         self.main_menu()
-        is_running = True
+        self.is_running = True
 
-        while is_running:
+        while self.is_running:
             time_delta = self.clock.tick(60)/1000.0
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    is_running = False
+            self.handle_menu_events()
+            self.manager.update(time_delta)
+            self.window_surface.blit(self.background, (0, 0))
+            self.manager.draw_ui(self.window_surface)
 
-                if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == self.play_button:
-                        print("Starting the game")
-                        self.start()
-                        exit()
-                    if event.ui_element == self.options_button:
-                        print("options")
-                        self.options()
-                    if event.ui_element == self.to_menu_button:
-                        print("go back to main menu")
-                        self.manager.clear_and_reset()
-                        self.main_menu()
-                    if event.ui_element == self.leaderboard_button:
-                        print("showing leaderboard")
-                    if event.ui_element == self.credits_button:
-                        self.credits()
-                    if event.ui_element == self.quit_button:
-                        print("Quit the program")
-                        is_running = False
-
-                if event.type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED:
-                    self.level = event.text
-                    print("new level:", self.level)
-                    self.options()
-
-                if event.type == pygame_gui.UI_TEXT_ENTRY_FINISHED and self.level == "Custom":
-                    if event.ui_object_id == "width":
-                        width = event.text
-                        if str(width).isdigit() and int(width) > 0:
-                            print("width", width)
-                            self.set_game_width(int(width))
-                    if event.ui_object_id == "height":
-                        height = event.text
-                        if str(height).isdigit() and int(height) > 0:
-                            print("height", height)
-                            self.set_game_height(int(height))
-                    if event.ui_object_id == "mines":
-                        mines = event.text
-                        if str(mines).isdigit() and int(mines) > 0:
-                            print("mines")
-                            self.set_game_mines(int(mines))
-
-                self.manager.process_events(event)
-
-                self.manager.update(time_delta)
-                self.window_surface.blit(self.background, (0, 0))
-                self.manager.draw_ui(self.window_surface)
-
-                pygame.display.update()
+            pygame.display.update()
