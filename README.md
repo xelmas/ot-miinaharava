@@ -2,7 +2,7 @@
 
 Kurssin **Ohjelmistotekniikka** harjoitustyötä varten luotu repositorio.
 
-Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä itse kustomoida. Käyttäjä voittaa pelin, mikäli onnistuu merkkaamaan kaikki piilossa olevat miinat. Käyttäjä häviää pelin, mikäli osuu miinaan.
+Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä itse kustomoida. Käyttäjä voittaa pelin, mikäli onnistuu avaamaan kaikki miinattomat ruudut. Käyttäjä häviää pelin, mikäli osuu miinaan.
 
 ## Dokumentaatio
 [Arkkitehtuurikuvaus](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/arkkitehtuuri.md) \
@@ -15,6 +15,7 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 1. Varmista, että poetry on asennettu komennolla ```poetry --version```
 2. Kloonaa repositorio komennolla ```git clone``` tai lataa lähdekoodi [releasen](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) kautta
 3. Siirry hakemistoon ja asenna riippuvuudet komennolla ```poetry install```
+4. Ennen ohjelman käynnistämistä suorita alustustoimenpiteet komennolla ```poetry run invoke build```
 
 ## Komentorivitoiminnot
 

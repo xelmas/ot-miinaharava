@@ -28,3 +28,11 @@
 - Testattu, että Minesweeper-luokan is_lost(), is_won(), set_time_passed() ja get_time_passed funktiot toimii oikein
 - Luotu sekvenssikaavio pelin aloittamisesta
 - Lisätty teksti kun peli päättyy (voitto tai häviö)
+
+## Viikko 6
+- Lisätty sqlite-tietokanta tiedon säilyttämiseen
+- Lisätty docstring-dokumentointi metodeihin ja luokkiin
+- Luotu luokat Result, ResultService, ResultRepository
+- Testattu, että luokat Result, ResultService, ResultRepository toimivat oikein
+- Testattu, että sprite-luokan oliot luodaan oikein
+- Lisätty ohjelman alustustoimenpiteet tietokannalle
