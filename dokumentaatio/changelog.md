@@ -13,7 +13,7 @@
 - Luotu käyttöliittymäluokka UI
 - Päävalikkoon luotu neljä eri toimintoa, asetuksiin luotu toiminnallisuus kentän dimensioiden muokkaamiseen
 
-## viikko 5
+## Viikko 5
 - Pelin graafinen toteutus
 - Lisätty uusi flag-sprite ja kuva.
 - Lisätty toiminnallisuus ruutujen liputtamiseen ja liputuksen poistoon
@@ -28,3 +28,4 @@
 - Testattu, että Minesweeper-luokan is_lost(), is_won(), set_time_passed() ja get_time_passed funktiot toimii oikein
 - Luotu sekvenssikaavio pelin aloittamisesta
 - Lisätty teksti kun peli päättyy (voitto tai häviö)
+- Luotu ensimmäinen release

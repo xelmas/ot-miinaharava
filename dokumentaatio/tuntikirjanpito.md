@@ -16,4 +16,6 @@
 |   22.4.       |       3       | Graafiseen ikkunaan lisätty siirtojen laskuri, lisätty testejä|
 |   23.4.       |       2       | Refaktorointi |
 |   25.4.       |       5       | Sekvenssikaavio ja dokumenttien päivitys, pelin päättymisen ilmoitus, lisätty testejä |
-|   yht.        |       52      |               |
+|   27.4.       |       8       | Docstring-dokumentointien lisäys luokkiin, tietokannan suunnittelu ja alustus |
+|   28.4.       |       3       | Tietokannan lisääminen projektiin ja testattu sen toiminta, lisätty testejä |
+|   yht.        |       63      |               |
