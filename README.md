@@ -8,7 +8,8 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 [Arkkitehtuurikuvaus](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/arkkitehtuuri.md) \
 [Tuntikirjanpito](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/tuntikirjanpito.md) \
 [Vaatimusmäärittely](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/vaatimusmaarittely.md) \
-[Changelog](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/changelog.md)
+[Changelog](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/changelog.md) \
+[Käyttöohje](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kayttoohje.md)
 
 ## Asennusohjeet
 
