@@ -9,7 +9,6 @@ CELL_SIZE = 31
 
 class UI:
     """User Interface of the game Minesweeper.
-
     Attributes:
         clock: pygame.time.Clock object for tracking game time.
         window_surface: pygame.Surface object represents the game window.
@@ -38,7 +37,6 @@ class UI:
 
     def create_buttons(self):
         """Creates pygame-gui buttons for the main menu.
-
         The buttons include options to play the game, access options, view the leaderboard, view credits, and quit the game.
         """
         self.play_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 200), (120, 50)),
@@ -63,7 +61,6 @@ class UI:
 
     def main_menu(self):
         """Initializes and displays the main menu of the game with pygame-gui buttons. 
-
         Sets buttons visible. The buttons include options to play the game, access options, view the leaderboard, view credits, and quit the game.
         """
         pygame.display.set_caption("Main menu")
@@ -89,13 +86,11 @@ class UI:
         The available levels to choose from are Beginner, Intermediate, Expert and Custom. 
         If the user selects the Custom, additional input fields appear for the user to give the width, height 
         and number of mines for the game.
-
         The selected options are stored in the attributes:
         - self.level
         - self.game_width
         - self.game_height
         - self.game_mines
-
         To go back to the main menu, the user can click on the "To main menu" button.
         """
         self.manager.clear_and_reset()
@@ -147,7 +142,6 @@ class UI:
 
     def draw_timer_and_counter(self, display, time_passed_seconds, game):
         """Draws the game timer and move counter on the screen.
-
         Args:
             display (pygame.Surface): The surface to draw the timer and counter on.
             time_passed_seconds (int): The time passed in seconds.
@@ -168,9 +162,7 @@ class UI:
 
     def draw_game_over_info_won(self, display):
         """Draws 'You won!' on the screen if the game has been won.
-
         If the game has not been won, this function should not be called.
-
         Args:
             display (pygame.Surface): The surface to draw on to.
         """
@@ -181,9 +173,7 @@ class UI:
 
     def draw_game_over_info_lost(self, display):
         """Draws 'You lose' on the screen if the game has been lost.
-
         If the game has not been lost, this function should not be called.
-
         Args:
             display (pygame.Surface): The surface to draw on to.
         """
@@ -194,7 +184,6 @@ class UI:
 
     def handle_game_events(self, game, display, time_passed_seconds):
         """Handle the events that happen during the game.
-
         Args:
             game (Minesweeper): The current game.
             display (pygame.Surface): The display to update.
@@ -212,7 +201,6 @@ class UI:
 
                 if event.button == 1:  # left click
                     game.board.reveal(x_cor, y_cor)
-                    game.add_move()
                     game.update_game(display)
                     pygame.display.update()
                     if game.is_won():
@@ -227,7 +215,6 @@ class UI:
                         game.set_time_passed(time_passed_seconds)
                         self.draw_game_over_info_lost(display)
                         game.update_game(display)
-                        game.save_result()
                         self.game_over = True
                         pygame.time.wait(1000)
 
@@ -237,11 +224,9 @@ class UI:
 
     def initialize_game_window(self):
         """Initialize the game window.
-
         Creates and returns a Pygame display representing the game window. The display size is determined by
         multiplying the game board dimensions (in tiles) by the size of cell, and adding 200 pixels for padding.
         Pygame is initialized and the game window caption is set to 'Minesweeper'.
-
         Returns:
             pygame.Surface: The display representing the game window.
         """
@@ -254,10 +239,8 @@ class UI:
 
     def start(self):
         """Starts the Minesweeper game.
-
         Initializes the game window, creates a new Minesweeper game, 
         initializes the timer and starts the game loop.
-
         The game window is displayed until the user quits or the game ends.
         """
         display = self.initialize_game_window()
@@ -279,11 +262,9 @@ class UI:
 
     def handle_text_entry(self, event):
         """Handle the text entries in the options view. 
-
         Method handles user input from text boxes in the options view.
         It sets the game's parameters (width, height, mines)
         depending on which text box was triggered.
-
         Args:
             event (pygame.event): The event that triggered the text entry.
         """
@@ -302,9 +283,7 @@ class UI:
 
     def handle_menu_change(self, event):
         """Handle a change in the dropdown menu in the options view.
-
         Method sets 'self.level' parameter to the selected level.
-
         Args:
             event (pygame.event): The event that triggered the dropdown menu change.
                                   The 'text' attribute contain the text of the selected level.
@@ -314,7 +293,6 @@ class UI:
 
     def handle_menu_events(self):
         """Handle the events triggered in the game menu.
-
         Method handles different types of events, clicking on a button, text entry or changing the value of a dropdown menu.
         Then it calls the specific method to handle the event.
         """
@@ -348,7 +326,6 @@ class UI:
 
     def menu_loop(self):
         """Creates main menu and starts the menu loop.
-
         In the each cycle of loop, the method handles events, updates the UI-manager and draws the UI on the window_surface.
         The loop continues until the 'is_running' value is set to 'False', 
         this happens if the user clicks the 'Quit' button or the game is over.
@@ -367,7 +344,6 @@ class UI:
 
     def set_level(self):
         """Sets the game level based on the current value of 'self.level'.
-
         Updates the 'game_width', 'game_height' and 'game_mines' attributes 
         based on the values defined in the 'LEVELS' dictionary constant.
         """
@@ -375,9 +351,7 @@ class UI:
 
     def set_game_width(self, game_width):
         """Sets the width of the game board in tiles.
-
         Represents the number of columns on the board. Must be an integer greater than 0.
-
         Args:
             game_width (int): The width of the game board in tiles.
         """
@@ -385,9 +359,7 @@ class UI:
 
     def set_game_height(self, game_height):
         """Sets the height of the game board in tiles.
-
         Represents the number of rows on the board. Must be an integer greater than 0.
-
         Args:
             game_height (int): The height of the game board in tiles.
         """
@@ -395,7 +367,6 @@ class UI:
 
     def set_game_mines(self, game_mines):
         """Sets the number of mines on the board.
-
         Args:
             game_mines (int): The number of mines on the board.
         """

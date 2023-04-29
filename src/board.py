@@ -9,6 +9,7 @@ class Board:
         revealed(set): A set of coordinates of all revealed tiles.
         flagged(set): A set of coordinates of all flagged tiles.
         board(list): A 2-dimensional list representing the board.
+        moves(int): The number of moves made so far.
     """
 
     def __init__(self, width, height, num_mines) -> None:
@@ -23,6 +24,7 @@ class Board:
         self.height = height
         self.num_mines = num_mines
         self.game_over = False
+        self.moves = 0
 
         self.mines = set()
         self.revealed = set()
@@ -66,24 +68,40 @@ class Board:
                     result.append((new_x, new_y))
         return result
 
-    def reveal(self, x_cor, y_cor):
+    def add_move(self):
+        """Increases the count of moves made so far by 1."""
+        self.moves += 1
+
+    def get_moves(self):
+        """Returns the count of moves made so far.
+
+        Returns:
+            int: The count of moves made so far.
+        """
+        return self.moves
+
+    def reveal(self, x_cor, y_cor, click=1):
         """Reveals the content of the given tile on the board.
 
         Args:
             x_cor (int): The x-coordinate of the tile to reveal.
             y_cor (int): The y-coordinate of the tile to reveal.
+            click (int): The number representing if the tile was clicked. 
+                         1: add click to moves counter.
+                         0: do nothing.
 
         Returns:
             bool: True if the tile was revealed succesfully, False otherwise.
         """
-
         if x_cor < 0 or y_cor < 0:
             return False
         if x_cor >= self.width or y_cor >= self.height:
             return False
-
         if (x_cor, y_cor) not in self.revealed:
             self.revealed.add((x_cor, y_cor))
+
+            if click == 1:
+                self.add_move()
 
         if (x_cor, y_cor) in self.mines:
             self.game_over = True
@@ -99,7 +117,7 @@ class Board:
             self.board[y_cor][x_cor] = " "
             for x_cor2, y_cor2 in self.get_neighbors(x_cor, y_cor):
                 if (x_cor2, y_cor2) not in self.revealed:
-                    self.reveal(x_cor2, y_cor2)
+                    self.reveal(x_cor2, y_cor2, click=0)
         else:
             self.board[y_cor][x_cor] = num_adjecent_mines
 

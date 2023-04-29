@@ -13,7 +13,6 @@ class Minesweeper:
 
     Attributes:
         board (Board): The game board.
-        moves (int): The number of moves made.
         time_passed (int): The time that has passed since the game started.
         cell_size (int): The size of one tile in pixels.
     """
@@ -28,7 +27,6 @@ class Minesweeper:
             cell_size (int): The size of one tile in pixels.
         """
         self.board = Board(width, height, num_mines)
-        self.moves = 0
         self.time_passed = 0
         self.cell_size = cell_size
         self._level = f"{width}, {height}, {num_mines}"
@@ -57,13 +55,14 @@ class Minesweeper:
 
     def save_result(self):
         result_service.create_result(
-            "PLAYER", self._level, self.time_passed, self.moves)
+            "PLAYER", self._level, self.time_passed, self.board.get_moves())
         self.print_results()
 
     def print_results(self):
         results = result_service.get_results()
         for stat in results:
-            print("name:", stat.username,"\nlevel (w, h, m):", stat.level,"\ntime (s):", stat.time, "\nmoves:", stat.moves)
+            print("name:", stat.username, "\nlevel (w, h, m):",
+                  stat.level, "\ntime (s):", stat.time, "\nmoves:", stat.moves)
             print()
 
     def is_won(self):
@@ -163,7 +162,7 @@ class Minesweeper:
 
     def add_move(self):
         """Increases the count of moves made so far by 1."""
-        self.moves += 1
+        self.board.add_move()
 
     def get_moves(self):
         """Returns the count of moves made so far.
@@ -171,4 +170,4 @@ class Minesweeper:
         Returns:
             int: The count of moves made so far.
         """
-        return self.moves
+        return self.board.get_moves()
