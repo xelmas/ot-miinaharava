@@ -25,7 +25,7 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
 - Jos käyttäjä valitsee Custom, pyydetään käyttäjää syöttämään pelikentän leveys, korkeus ja miinojen lukumäärä. (Tehty)
 
 ### Tilasto
-- Käyttäjä voi tarkastella pelattujen pelien tilastoja.
+- Käyttäjä voi tarkastella pelattujen pelien tilastoja. (Osittain tehty, tällä hetkellä pelattujen pelien tilastot tulostuu terminaaliin kun peli päättyy)
 - Jos peli päättyy voittoon, käyttäjää pyydetään syöttämään käyttäjänimi, minkä jälkeen tulos tallennetaan tietokantaan.
 
 ### Lopetus
