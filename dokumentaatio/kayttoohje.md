@@ -20,9 +20,11 @@ Käyttäjä voi valita haluamansa toiminnon klikkaamalla hiiren oikeaa painikett
 
 ![Kuva peli-ikkunasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing.png)
 
-Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren oikealla klikatessa ruutu avautuu ja vasemmalla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa. Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käyttäjälle peliruudun alareunassa oliko peli voitto vai häviö.
+Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren oikealla klikatessa ruutu avautuu ja vasemmalla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa.
 
-![Kuva pelin päättymisestä]()
+![Kuva pelin päättymisestä](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end.png)
+
+Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käyttäjälle peliruudun alareunassa oliko peli voitto vai häviö.
 
 ### Asetusten muuttaminen (Options)
 
