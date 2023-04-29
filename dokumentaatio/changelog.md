@@ -36,3 +36,5 @@
 - Testattu, että luokat Result, ResultService, ResultRepository toimivat oikein
 - Testattu, että sprite-luokan oliot luodaan oikein
 - Lisätty ohjelman alustustoimenpiteet tietokannalle
+- Päivitetty dokumentit ja arkkitehtuurikuvaukseen lisätty sekvenssikaaviot
+- Luotu alustava käyttöohje
