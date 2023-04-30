@@ -19,4 +19,5 @@
 |   27.4.       |       8       | Docstring-dokumentointien lisäys luokkiin, tietokannan suunnittelu ja alustus |
 |   28.4.       |       10      | Tietokannan lisääminen, testattu sen toiminta, kaavioiden luonti, tutustuttu miten saisi menun toimimaan niin, että pelin päättyessä palataan takaisin päävalikkoon |
 |   29.4.       |       7       | Käyttöohjeen luonti, yritys saada menua toimimaan |
+|   30.4.       |       x       | Arkkitehtuurikuvauksen kuvien päivitys |
 |   yht.        |       77      |               |
