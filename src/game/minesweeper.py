@@ -1,5 +1,5 @@
 import pygame
-from board import Board
+from game.board import Board
 from sprites.mine import Mine
 from sprites.empty import Empty
 from sprites.adjecent import Adjecent

@@ -1,5 +1,5 @@
 import unittest
-from board import Board
+from game.board import Board
 
 CELL_SIZE = 31
 

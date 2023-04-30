@@ -1,6 +1,6 @@
 import pygame_gui
 import pygame
-from minesweeper import Minesweeper
+from game.minesweeper import Minesweeper
 
 LEVELS = {"Beginner": (9, 9, 10), "Intermediate": (
     16, 16, 40), "Expert": (16, 30, 99), "Custom": (15, 15, 15)}

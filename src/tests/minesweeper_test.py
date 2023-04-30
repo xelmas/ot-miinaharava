@@ -1,6 +1,6 @@
 import unittest
 from pygame.sprite import AbstractGroup
-from minesweeper import Minesweeper
+from game.minesweeper import Minesweeper
 
 CELL_SIZE = 31
 
