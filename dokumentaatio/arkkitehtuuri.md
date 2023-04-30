@@ -5,7 +5,7 @@ Ohjelman pakkausrakenne:
 
 ![pakkauskaavio](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/arkkitehtuuri-pakkaus.png)
 
-Pakkaus ui vastaa käyttöliittymästä, minesweeper, board ja service vastaavat sovelluslogiikasta ja repository vastaa pelitietojen säilömisestä. Sprites-luokan objektit vastaavat pelin graafisista elementeistä.
+Pakkaus ui vastaa käyttöliittymästä, game vastaa sovelluslogiikasta ja repository vastaa pelitietojen säilömisestä. Sprites-luokan objektit vastaavat pelin graafisista elementeistä.
 
 ## Käyttöliittymä
 
