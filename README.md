@@ -13,7 +13,8 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 
 ## Releases
 
-[Release viikko 5](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5)
+[Viikko 5 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) \
+[Viikko 6 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko6)
 
 ## Asennusohjeet
 
