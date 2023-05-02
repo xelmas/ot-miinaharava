@@ -11,10 +11,14 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 [Changelog](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/changelog.md) \
 [Käyttöohje](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kayttoohje.md)
 
+## Releases
+
+[Release viikko 5](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5)
+
 ## Asennusohjeet
 
 1. Varmista, että poetry on asennettu komennolla ```poetry --version```
-2. Kloonaa repositorio komennolla ```git clone``` tai lataa lähdekoodi [releasen](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) kautta
+2. Kloonaa repositorio komennolla ```git clone``` tai lataa lähdekoodi kohdasta releases.
 3. Siirry hakemistoon ja asenna riippuvuudet komennolla ```poetry install```
 4. Ennen ohjelman käynnistämistä suorita alustustoimenpiteet komennolla ```poetry run invoke build```
 
