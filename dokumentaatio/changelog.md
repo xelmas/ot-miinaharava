@@ -39,3 +39,4 @@
 - Päivitetty dokumentit ja arkkitehtuurikuvaukseen lisätty sekvenssikaaviot
 - Luotu alustava käyttöohje
 - Siirretty pelin sovelluslogiikasta vastaavat tiedostot minesweeper.py ja board.py omaan kansioon game
+- Luotu uusin release
