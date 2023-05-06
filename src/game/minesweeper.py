@@ -53,17 +53,9 @@ class Minesweeper:
         for x_cor, y_cor in self.board.get_mines():
             self.board.get_revealed().add((x_cor, y_cor))
 
-    def save_result(self):
+    def save_result(self, player_name):
         result_service.create_result(
-            "PLAYER", self._level, self.time_passed, self.board.get_moves())
-        self.print_results()
-
-    def print_results(self):
-        results = result_service.get_results()
-        for stat in results:
-            print("name:", stat.username, "\nlevel (w, h, m):",
-                  stat.level, "\ntime (s):", stat.time, "\nmoves:", stat.moves)
-            print()
+            player_name, self._level, self.time_passed, self.board.get_moves())
 
     def is_won(self):
         """Checks if the game has been won. 
@@ -171,3 +163,15 @@ class Minesweeper:
             int: The count of moves made so far.
         """
         return self.board.get_moves()
+
+    def get_game_mines(self):
+        return self.board.get_num_mines()
+    
+    def get_game_flagged(self):
+        return len(self.board.get_flagged())
+    
+    def get_game_mines_flagged_info(self):
+        result = self.get_game_mines() - self.get_game_flagged()
+        if result < 0:
+            result = 0
+        return result

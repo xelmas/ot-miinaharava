@@ -151,10 +151,11 @@ class Board:
             x_cor (int): The x-coordinate of the tile.
             y_cor (int): The y-coordinate of the tile.
         """
-        if (x_cor, y_cor) not in self.flagged:
-            self.flagged.add((x_cor, y_cor))
-        else:
-            self.remove_flag(x_cor, y_cor)
+        if (x_cor, y_cor) not in self.revealed:
+            if (x_cor, y_cor) not in self.flagged:
+                self.flagged.add((x_cor, y_cor))
+            else:
+                self.remove_flag(x_cor, y_cor)
 
     def get_flagged(self):
         """Returns a set of all tiles that have been flagged.

@@ -15,6 +15,12 @@ class ResultRepository:
         cursor.execute("SELECT * FROM results")
         results = cursor.fetchall()
         return list(map(get_stat_by_row, results))
+    
+    def find_ten_best(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM results ORDER BY time LIMIT 10")
+        results = cursor.fetchall()
+        return list(map(get_stat_by_row, results))
 
     def create(self, result):
         cursor = self._connection.cursor()
