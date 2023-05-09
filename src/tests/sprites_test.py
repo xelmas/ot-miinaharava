@@ -1,6 +1,5 @@
 import unittest
-import pygame
-from sprites.adjecent import Adjecent
+from sprites.adjacent import Adjacent
 from sprites.empty import Empty
 from sprites.flag import Flag
 from sprites.mine import Mine
@@ -12,7 +11,7 @@ class TestAdjecent(unittest.TestCase):
         self.x_cor = 62
         self.y_cor = 93
         self.value = 5
-        self.adjecent = Adjecent(self.x_cor, self.y_cor, self.value)
+        self.adjecent = Adjacent(self.x_cor, self.y_cor, self.value)
 
     def test_init(self):
         adjecent = self.adjecent
