@@ -8,7 +8,7 @@ class Empty(pygame.sprite.Sprite):
     def __init__(self, x_cor=0, y_cor=0):
         super().__init__()
         self.image = pygame.image.load(
-            os.path.join(dirname, "..", "assets", "empty.png")
+            os.path.join(dirname, "..", "assets/images", "empty.png")
         )
         self.rect = self.image.get_rect()
         self.rect.x = x_cor
