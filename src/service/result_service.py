@@ -13,9 +13,9 @@ class ResultService:
 
     def get_results(self):
         return self._result_repository.find_all()
-    
-    def get_ten_best(self):
-        return self._result_repository.find_ten_best()
+
+    def get_top_ten(self):
+        return self._result_repository.find_top_ten()
 
 
 result_service = ResultService()
