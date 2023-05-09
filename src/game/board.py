@@ -53,6 +53,7 @@ class Board:
         Args:
             x_cor (int): The x-coordinate of the tile.
             y_cor (int): The y-coordinate of the tile.
+
         Returns:
             list: The neighboring tiles of the given tile.
         """
@@ -86,24 +87,25 @@ class Board:
         Args:
             x_cor (int): The x-coordinate of the tile to reveal.
             y_cor (int): The y-coordinate of the tile to reveal.
-            click (int): The number representing if the tile was clicked. 
-                         1: add click to moves counter.
-                         0: do nothing.
+            click (int): The number representing if the tile was clicked. Can be 1 or 0.
+                         If the value is 1, moves counter will be increased by one.
+                         If the value is 0, moves counter will be intact.
 
         Returns:
             bool: True if the tile was revealed succesfully, False otherwise.
         """
-        if x_cor < 0 or y_cor < 0:
+        tile_position = (x_cor, y_cor)
+
+        if self.is_over_board(x_cor, y_cor):
             return False
-        if x_cor >= self.width or y_cor >= self.height:
-            return False
-        if (x_cor, y_cor) not in self.revealed:
-            self.revealed.add((x_cor, y_cor))
+
+        if tile_position not in self.revealed:
+            self.revealed.add(tile_position)
 
             if click == 1:
                 self.add_move()
 
-        if (x_cor, y_cor) in self.mines:
+        if tile_position in self.mines:
             self.game_over = True
             return False
 
@@ -124,14 +126,14 @@ class Board:
         return True
 
     def get_num_adjacent_mines(self, x_cor, y_cor):
-        """Count the number of adjecent mines for the given tile.
+        """Count the number of adjacent mines for the given tile.
 
         Args:
             x_cor (int): The x-coordinate of the tile.
             y_cor (int): The y-coordinate of the tile.
 
         Returns:
-            int: The number of adjecent mines.
+            int: The number of adjacent mines.
         """
         count = 0
         neighbors = self.get_neighbors(x_cor, y_cor)
@@ -141,19 +143,38 @@ class Board:
                 count += 1
         return count
 
-    def add_flag(self, x_cor, y_cor):
-        """Add or remove the given tile to/from the list of flagged tiles.
+    def is_over_board(self, x_cor, y_cor):
+        """Checks if the clicked position is within the game board.
 
-        If the tile is not flagged, it will be added to the list.
+        Args:
+            x_cor (int): The x-coordinate of the clicked position.
+            y_cor (int): The y-coordinate of the clicked position.
+
+        Returns:
+            bool: True if the clicked position is outside of the game board,
+                  False otherwise.
+        """
+
+        if x_cor < 0 or y_cor < 0:
+            return True
+        if x_cor >= self.width or y_cor >= self.height:
+            return True
+        return False
+
+    def add_flag(self, x_cor, y_cor):
+        """Adds or removes the given tile to/from the list of flagged tiles.
+
+        If the tile is not flagged and the clicked position is within the game board, it will be added to the list.
         If the tile is already flagged, it will be removed from the list.
 
         Args:
             x_cor (int): The x-coordinate of the tile.
             y_cor (int): The y-coordinate of the tile.
         """
-        if (x_cor, y_cor) not in self.revealed:
-            if (x_cor, y_cor) not in self.flagged:
-                self.flagged.add((x_cor, y_cor))
+        tile_position = (x_cor, y_cor)
+        if tile_position not in self.revealed and not self.is_over_board(x_cor, y_cor):
+            if tile_position not in self.flagged:
+                self.flagged.add(tile_position)
             else:
                 self.remove_flag(x_cor, y_cor)
 
@@ -186,8 +207,8 @@ class Board:
         """Returns the set of tiles that contain a mine.
 
         Returns:
-            set: A set of tuples (x_cor, y_cor)
-            representing the coordinates of tiles containing a mine.
+            set: A set of tuples (x_cor, y_cor) representing
+                 the coordinates of tiles containing a mine.
         """
         return self.mines
 
