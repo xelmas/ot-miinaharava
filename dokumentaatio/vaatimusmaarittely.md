@@ -7,31 +7,37 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
 ## Toiminnallisuudet
 
 ### Päävalikko
-- Käyttäjälle näkyy neljä eri toimintoa: play (pelaaminen), options (asetukset), leaderboard (tilasto), quit (lopetus). (Tehty)
+- Käyttäjälle näkyy neljä eri toimintoa: play (pelaaminen), options (asetukset), leaderboard (tilasto), quit (lopetus).
 
 ### Pelaaminen
-- Vaikeustaso määräytyy käyttäjän valitseman pelikentän leveyden, korkeuden ja miinojen lukumäärän mukaan (Tehty)
-- Kun uusi peli aloitetaan, aloitetaan myös ajanotto ja avattujen ruutujen (siirtojen) laskeminen (Tehty)
-- Käyttäjä voi merkata/poistaa merkityn miinan painamalla hiiren oikeaa painiketta (Tehty)
-    - Siirtojen lukumäärä ei kasva
-- Käyttäjä voi avata ruudun painamalla hiiren vasenta painiketta (Tehty)
-    - Siirtojen lukumäärä kasvaa
-- Mikäli avattu ruutu on miina, peli päättyy  (Tehty)
-    - Ajanotto lopetetaan
-- Kun peli päättyy, ilmoitetaan käyttäjälle oliko peli voitto vai häviö (Tehty)
+- Vaikeustaso määräytyy käyttäjän valitseman pelikentän leveyden, korkeuden ja miinojen lukumäärän mukaan.
+- Kun uusi peli aloitetaan, aloitetaan myös ajanotto ja avattujen ruutujen (siirtojen) laskeminen.
+- Käyttäjälle näkyy laskuri, joka kertoo kuinka monta miinaa pelissä vielä on. Laskurin arvo pienenee kun käyttäjä liputtaa ruutuja. Laskuri ei kuitenkaan voi mennä negatiiviseksi, eikä se ota kantaa sisältääkö käyttäjän merkkaama ruutu todella miinaa.
+- Käyttäjä voi merkata/poistaa merkityn miinan painamalla hiiren oikeaa painiketta.
+    - Siirtojen lukumäärä ei kasva.
+- Käyttäjä voi avata ruudun painamalla hiiren vasenta painiketta.
+    - Siirtojen lukumäärä kasvaa.
+- Mikäli avattu ruutu on miina, peli päättyy.
+    - Ajanotto lopetetaan.
+- Kun peli päättyy, ilmoitetaan käyttäjälle oliko peli voitto vai häviö ja palataan takaisin päävalikkoon. Jos peli päättyi voittoon, tallennetaan tulos tietokantaan.
 
 ### Asetukset
-- Käyttäjä voi valita neljästä eri vaihtoehdosta vaikeustason: Beginner, Intermediate, Expert tai Custom. (Tehty)
-- Jos käyttäjä valitsee Custom, pyydetään käyttäjää syöttämään pelikentän leveys, korkeus ja miinojen lukumäärä. (Tehty)
+- Käyttäjä voi valita neljästä eri vaihtoehdosta vaikeustason: Beginner, Intermediate, Expert tai Custom.
+- Jos käyttäjä valitsee Custom, pyydetään käyttäjää syöttämään pelikentän leveys, korkeus ja miinojen lukumäärä.
+    - Vaikeustason leveys tai korkeus ei voi olla suurempi kuin 32, mutta oltava vähintään 5.
+    - Miinoja on oltava vähintään 2 ja maksimissaan 300. Jos miinoja on yhtä paljon kuin ruutuja, käytetään oletusarvoa 15.
+- Käyttäjä voi antaa käyttäjänimen, joka tallennetaan tietokantaan, kun peli päättyy voittoon. Oletusnimenä "PLAYER".
 
 ### Tilasto
-- Käyttäjä voi tarkastella pelattujen pelien tilastoja. (Osittain tehty, tällä hetkellä pelattujen pelien tilastot tulostuu terminaaliin kun peli päättyy)
-- Jos peli päättyy voittoon, käyttäjää pyydetään syöttämään käyttäjänimi, minkä jälkeen tulos tallennetaan tietokantaan.
+- Käyttäjälle näytetään max 10 parasta tulosta nopeusjärjestyksessä
+- Jos peli päättyy voittoon, tulos tallennetaan tietokantaan. Tietokantaan tallennetaan asetuksissa valitut tiedot: pelaajan nimi, pelin leveys, korkeus ja miinojen lukumäärä. Pelistä tallennetaan lisäksi peliin kulunut aika sekunteina ja kuinka monta siirtoa eli klikkausta käyttäjä käytti ruutujen avaamiseen.
 
 ### Lopetus
-- Sulkee ohjelman. (Tehty)
+- Sulkee ohjelman.
 
 ## Jatkokehitysideat
-- Pelattujen pelien järjestys ajan mukaan pienimmästä suurimpaan
-- Pelattujen pelien poistaminen listalta
-- Mahdollisuus luoda käyttäjätunnus ja kirjautua sisään
+- Pelattujen pelien poistaminen listalta.
+- Mahdollisuus luoda käyttäjätunnus ja kirjautua sisään.
+- Äänitehosteiden lisääminen.
+- Pelitulosten näyttäminen vaikeustasoittain.
+- Menun ulkoasun muokkaus
