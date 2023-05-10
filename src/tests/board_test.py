@@ -12,13 +12,13 @@ class TestBoard(unittest.TestCase):
         self.assertNotEqual(self.board, None)
 
     def test_board_dimensions(self):
-        height = self.board.get_height()
-        width = self.board.get_width()
+        height = self.board.height
+        width = self.board.width
         self.assertEqual(height, 9)
         self.assertEqual(width, 8)
 
     def test_set_num_mines(self):
-        mines = self.board.get_num_mines()
+        mines = self.board.num_mines
         self.assertEqual(mines, 6)
 
     def test_reveal_x_y_negative_returns_False(self):

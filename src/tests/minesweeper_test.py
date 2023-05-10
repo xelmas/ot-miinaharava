@@ -14,9 +14,11 @@ class TestMinesweeper(unittest.TestCase):
         self.assertEqual(sprite.rect.x, x)
         self.assertEqual(sprite.rect.y, y)
 
-    def test_add_move(self):
-        self.game.add_move()
-        self.assertEqual(self.game.get_moves(), 1)
+    def test_get_moves(self):
+        game = Minesweeper(5,5, 10, CELL_SIZE)
+        game.board.add_move()
+        game.board.add_move()
+        self.assertEqual(game.get_moves(), 2)
 
     def test_is_won_returns_True(self):
         game = Minesweeper(3, 3, 2, CELL_SIZE)
@@ -37,15 +39,6 @@ class TestMinesweeper(unittest.TestCase):
     def test_is_lost_returns_False(self):
         game = Minesweeper(5, 5, 2, CELL_SIZE)
         self.assertEqual(game.is_lost(), False)
-
-    def test_get_game_mines(self):
-        self.assertEqual(self.game.get_game_mines(), 6)
-
-    def test_get_game_flagged(self):
-        game = Minesweeper(10, 10, 2, CELL_SIZE)
-        game.board.add_flag(1, 1)
-        game.board.add_flag(1, 2)
-        self.assertEqual(game.get_game_flagged(), 2)
 
     def test_get_game_mines_flagged_info(self):
         game = Minesweeper(10, 10, 5, CELL_SIZE)
@@ -87,7 +80,7 @@ class TestMinesweeper(unittest.TestCase):
         game.board.mines.add((0, 0))
         game.board.revealed.add((1, 0))
         game._initialize_tile_sprite(x_cor, y_cor, tile_content)
-        self.assertEqual(len(game.adjecent_tiles), 1)
+        self.assertEqual(len(game.adjacent_tiles), 1)
 
     def test_initialize_flag_tile_sprite(self):
         game = Minesweeper(3, 3, 0, CELL_SIZE)
@@ -102,4 +95,4 @@ class TestMinesweeper(unittest.TestCase):
         game.board.reveal(0, 0)
         game.board.add_flag(0, 1)
         game._initialize_tile_sprite(1, 1, 10)
-        self.assertEqual(len(game.adjecent_tiles), 0)
+        self.assertEqual(len(game.adjacent_tiles), 0)

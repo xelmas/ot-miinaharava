@@ -291,16 +291,16 @@ class UI:
                     if game.is_won():
                         self.draw_game_over_info_won(display)
                         self.save_result(time_passed_seconds,
-                                         game.board.get_moves())
+                                         game.get_moves())
                         self.update_game(display, game)
                         self.game_over = True
-                        pygame.time.wait(1000)
+                        pygame.time.wait(2000)
 
                     elif game.is_lost():
                         self.draw_game_over_info_lost(display)
                         self.update_game(display, game)
                         self.game_over = True
-                        pygame.time.wait(1000)
+                        pygame.time.wait(2000)
 
                 elif event.button == 3:  # right click
                     game.board.add_flag(x_cor, y_cor)
@@ -446,7 +446,6 @@ class UI:
                 self.handle_text_entry(event)
 
             self.manager.process_events(event)
-            pygame.display.update()
 
     def menu_loop(self):
         """Creates the main menu and starts the menu loop.

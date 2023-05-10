@@ -5,7 +5,15 @@ dirname = os.path.dirname(__file__)
 
 
 class Flag(pygame.sprite.Sprite):
-    def __init__(self, x_cor=0, y_cor=0):
+    """Represents a flagged tile in the Minesweeper game."""
+
+    def __init__(self, x_cor, y_cor):
+        """Initializes a new Empty tile with given coordinates.
+
+        Args:
+            x_cor (int): The x-coordinate of the given tile.
+            y_cor (int): The y-coordinate of the given tile.
+        """
         super().__init__()
         self.image = pygame.image.load(
             os.path.join(dirname, "..", "assets/images", "flag.png")

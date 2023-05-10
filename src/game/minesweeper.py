@@ -12,7 +12,6 @@ class Minesweeper:
 
     Attributes:
         board (Board): The game board.
-        time_passed (int): The time that has passed since the game started.
         cell_size (int): The size of one tile in pixels.
     """
 
@@ -26,7 +25,6 @@ class Minesweeper:
             cell_size (int): The size of one tile in pixels.
         """
         self.board = Board(width, height, num_mines)
-        self.time_passed = 0
         self.cell_size = cell_size
         self._initialize_sprite_groups()
 
@@ -40,7 +38,7 @@ class Minesweeper:
         """
         self.mine_tiles = pygame.sprite.Group()
         self.empty_tiles = pygame.sprite.Group()
-        self.adjecent_tiles = pygame.sprite.Group()
+        self.adjacent_tiles = pygame.sprite.Group()
         self.unrevealed_tiles = pygame.sprite.Group()
         self.flag_tiles = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
@@ -48,8 +46,8 @@ class Minesweeper:
 
     def show_mines(self):
         """Reveals all tiles containing mines by adding them to the revealed list."""
-        for x_cor, y_cor in self.board.get_mines():
-            self.board.get_revealed().add((x_cor, y_cor))
+        for x_cor, y_cor in self.board.get_mine_tiles():
+            self.board.get_revealed_tiles().add((x_cor, y_cor))
 
     def is_won(self):
         """Checks if the game has been won. 
@@ -61,7 +59,7 @@ class Minesweeper:
             bool: True if the game is won, False otherwise.
         """
         num_all_tiles = self.board.width * self.board.height - self.board.num_mines
-        if len(self.board.get_revealed()) == num_all_tiles:
+        if len(self.board.get_revealed_tiles()) == num_all_tiles:
             self.show_mines()
             return True
         return False
@@ -81,7 +79,7 @@ class Minesweeper:
         return False
 
     def _initialize_sprites(self):
-        """Initializes the sprite groups for each types of tiles and adds them to all_sprites group."""
+        """Initializes the sprite groups for each types and adds them to all sprites group."""
         for y_cor, row in enumerate(self.board.get_board()):
             for x_cor, tile_content in enumerate(row):
                 self._initialize_tile_sprite(x_cor, y_cor, tile_content)
@@ -89,7 +87,7 @@ class Minesweeper:
         self.all_sprites.add(
             self.mine_tiles,
             self.empty_tiles,
-            self.adjecent_tiles,
+            self.adjacent_tiles,
             self.unrevealed_tiles,
             self.flag_tiles
         )
@@ -108,21 +106,17 @@ class Minesweeper:
         norm_y = y_cor * self.cell_size
         tile_position = (x_cor, y_cor)
 
-        if tile_position in self.board.get_revealed():
+        if tile_position in self.board.get_revealed_tiles():
             if tile_content == "x":
                 self.mine_tiles.add(Mine(norm_x, norm_y))
             elif tile_content == " ":
                 self.empty_tiles.add(Empty(norm_x, norm_y))
             elif isinstance(tile_content, int) and 1 <= tile_content <= 8:
-                self.adjecent_tiles.add(Adjacent(norm_x, norm_y, tile_content))
-        elif tile_position in self.board.get_flagged():
+                self.adjacent_tiles.add(Adjacent(norm_x, norm_y, tile_content))
+        elif tile_position in self.board.get_flagged_tiles():
             self.flag_tiles.add(Flag(norm_x, norm_y))
         else:
             self.unrevealed_tiles.add(Unrevealed(norm_x, norm_y))
-
-    def add_move(self):
-        """Increases the count of moves made so far by 1."""
-        self.board.add_move()
 
     def get_moves(self):
         """Returns the count of moves made so far.
@@ -130,33 +124,18 @@ class Minesweeper:
         Returns:
             int: The count of moves made so far.
         """
-        return self.board.get_moves()
-
-    def get_game_mines(self):
-        """Returns the number of mines on the board.
-
-        Returns:
-            int: The number of mines on the board.
-        """
-        return self.board.get_num_mines()
-
-    def get_game_flagged(self):
-        """Returns the number of tiles that are flagged.
-
-        Returns:
-            int: The number of tiles that are flagged.
-        """
-        return len(self.board.get_flagged())
+        return self.board.moves
 
     def get_game_mines_flagged_info(self):
         """Calculates the number of remaining mines to be flagged.
 
-        The remaining number of mines is determined by subtracting the number of tiles flagged by the user from the total number of mines on the board.
-        The count cannot be negative, even if the user flags more tiles than there are mines.
-        If the user clicks the tile with the right mouse button, the tile will be flagged and the counter will be updated.
+        The remaining number of mines is determined by subtracting the number of tiles flagged
+        by the user from the total number of mines on the board. The count cannot be negative,
+        even if the user flags more tiles than there are mines. If the user clicks the tile
+        with the right mouse button, the tile will be flagged and the counter will be updated.
 
         Returns:
             int: The number of remaining mines on the board that are not flagged.
         """
-        result = self.get_game_mines() - self.get_game_flagged()
+        result = self.board.num_mines - len(self.board.flagged)
         return max(result, 0)

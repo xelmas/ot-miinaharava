@@ -6,7 +6,7 @@ from sprites.mine import Mine
 from sprites.unrevealed import Unrevealed
 
 
-class TestAdjecent(unittest.TestCase):
+class TestAdjacent(unittest.TestCase):
     def setUp(self) -> None:
         self.x_cor = 62
         self.y_cor = 93

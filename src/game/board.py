@@ -73,14 +73,6 @@ class Board:
         """Increases the count of moves made so far by 1."""
         self.moves += 1
 
-    def get_moves(self):
-        """Returns the count of moves made so far.
-
-        Returns:
-            int: The count of moves made so far.
-        """
-        return self.moves
-
     def reveal(self, x_cor, y_cor, click=1):
         """Reveals the content of the given tile on the board.
 
@@ -164,8 +156,9 @@ class Board:
     def add_flag(self, x_cor, y_cor):
         """Adds or removes the given tile to/from the list of flagged tiles.
 
-        If the tile is not flagged and the clicked position is within the game board, it will be added to the list.
-        If the tile is already flagged, it will be removed from the list.
+        If the tile is not flagged and the clicked position is within the game board,
+        it will be added to the list. If the tile is already flagged, it will be removed
+        from the list.
 
         Args:
             x_cor (int): The x-coordinate of the tile.
@@ -178,7 +171,7 @@ class Board:
             else:
                 self.remove_flag(x_cor, y_cor)
 
-    def get_flagged(self):
+    def get_flagged_tiles(self):
         """Returns a set of all tiles that have been flagged.
 
         Returns:
@@ -195,7 +188,7 @@ class Board:
         """
         self.flagged.remove((x_cor, y_cor))
 
-    def get_revealed(self):
+    def get_revealed_tiles(self):
         """Returns a set of all tiles that have been revealed.
 
         Returns:
@@ -203,7 +196,7 @@ class Board:
         """
         return self.revealed
 
-    def get_mines(self):
+    def get_mine_tiles(self):
         """Returns the set of tiles that contain a mine.
 
         Returns:
@@ -211,14 +204,6 @@ class Board:
                  the coordinates of tiles containing a mine.
         """
         return self.mines
-
-    def get_num_mines(self):
-        """Returns the number of mines in the board.
-
-        Returns:
-            int: The number of mines in the board.
-        """
-        return self.num_mines
 
     def get_board(self):
         """Returns the current state of the board.
@@ -235,19 +220,3 @@ class Board:
             bool: True if the game is over, False otherwise.
         """
         return self.game_over
-
-    def get_height(self):
-        """Returns the height of the board.
-
-        Returns:
-            int: The height of the board.
-        """
-        return self.height
-
-    def get_width(self):
-        """Returns the width of the board.
-
-        Returns:
-            int: The width of the board.
-        """
-        return self.width
