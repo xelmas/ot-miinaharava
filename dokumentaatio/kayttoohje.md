@@ -32,6 +32,7 @@ Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, et
 Peli-ikkunassa näkyy oikealla allekkain kulunut aika, siirtojen lukumäärä ja jäljellä olevien miinojen lukumäärä, joka vähenee sitä mukaa kun ruutuja liputetaan.
 
 ![Kuva pelin päättymisestä voitto](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end_won.png)
+
 ![Kuva pelin päättymisestä häviö](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end_lost.png)
 
 Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käyttäjälle peliruudun alareunassa oliko peli voitto vai häviö.
@@ -51,12 +52,13 @@ Jos syötetyt arvot eivät vastaa annettuja ehtoja, käytetään oletusarvoina l
 ### Tilastojen tarkastelu (Leaderboard)
 
 Sovellus näyttää pelattujen voittojen tilastot.
+
 ![Kuva tilastosta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_leaderboard.png)
 
-Tilastonäkymässä näkyy tuloksittain pelaajan nimi, pelattu vaikeustaso, peliin kulunut aika sekunteina ja käytetyt siirrot. Pelattu vaikeustaso on annettu muodossa w, h, m, missä \
-    w on pelin leveys \
-    h on pelin korkeus \
-    m on miinojen lukumäärä.
+Tilastonäkymässä näkyy tuloksittain pelaajan nimi, pelattu vaikeustaso, peliin kulunut aika sekunteina ja käytetyt siirrot. Pelattu vaikeustaso on annettu muodossa w, h, m, missä 
+  - w on pelin leveys 
+  - h on pelin korkeus 
+  - m on miinojen lukumäärä.
 
 ### Sovelluksen sulkeminen (Quit)
 
