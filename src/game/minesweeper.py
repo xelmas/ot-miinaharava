@@ -126,7 +126,7 @@ class Minesweeper:
         """
         return self.board.moves
 
-    def get_game_mines_flagged_info(self):
+    def get_unflagged_mines(self):
         """Calculates the number of remaining mines to be flagged.
 
         The remaining number of mines is determined by subtracting the number of tiles flagged

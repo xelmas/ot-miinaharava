@@ -134,7 +134,7 @@ class UI:
                                                            manager=self.manager, visible=1)
         self.set_level()
 
-    def show_leaderboard(self):
+    def leaderboard(self):
         """Displays the leaderboard with the top 10 scores.
 
         Calls the result service and displays the player name, game level, time and moves of the top 10 scores
@@ -151,7 +151,7 @@ class UI:
             (100, 80), (600, 150)), text="Level parameters corresponds to the game width, height and number of mines.", manager=self.manager)
 
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
-            (350, 130), (100, 100)), text="Leaderboard", manager=self.manager)
+            (350, 130), (100, 120)), text="Leaderboard", manager=self.manager)
 
         padding = 50
         pygame_gui.elements.UILabel(relative_rect=pygame.Rect(
@@ -221,7 +221,7 @@ class UI:
             f"Moves: {game.get_moves()}", True, (255, 255, 255))
         display.blit(text, (32 * self.game_width + 30, 40))
         text = font.render(
-            f"Mines: {game.get_game_mines_flagged_info()}", True, (255, 255, 255))
+            f"Mines: {game.get_unflagged_mines()}", True, (255, 255, 255))
         display.blit(text, (32 * self.game_width + 30, 70))
 
     def draw_game_over_info_won(self, display):
@@ -384,7 +384,7 @@ class UI:
         if event.ui_object_id == "username":
             username = event.text
             if 10 >= len(username) >= 3:
-                self.set_username(username)
+                self.username = username
 
     def handle_menu_change(self, event):
         """Handle a change in the dropdown menu in the options view.
@@ -433,7 +433,7 @@ class UI:
                 if event.ui_element == self.to_menu_button:
                     self.to_main_menu()
                 if event.ui_element == self.leaderboard_button:
-                    self.show_leaderboard()
+                    self.leaderboard()
                 if event.ui_element == self.credits_button:
                     self.credits()
                 if event.ui_element == self.quit_button:
@@ -511,21 +511,3 @@ class UI:
             game_mines (int): The number of mines on the board.
         """
         self.game_mines = game_mines
-
-    def set_username(self, username):
-        """Sets the given username for the player's name.
-
-        The username will be used when the score is saved.
-
-        Args:
-            username (str): The player's name.
-        """
-        self.username = username
-
-    def get_username(self):
-        """Returns the player's name.
-
-        Returns:
-            str: The player's name.
-        """
-        return self.username

@@ -79,9 +79,9 @@ class Board:
         Args:
             x_cor (int): The x-coordinate of the tile to reveal.
             y_cor (int): The y-coordinate of the tile to reveal.
-            click (int): The number representing if the tile was clicked. Can be 1 or 0.
-                         If the value is 1, moves counter will be increased by one.
-                         If the value is 0, moves counter will be intact.
+            click (int, optional): The number representing if the tile was clicked. Can be 1 or 0.
+                                   If the value is 1, moves counter will be increased by one.
+                                   If the value is 0, moves counter will be intact.
 
         Returns:
             bool: True if the tile was revealed succesfully, False otherwise.
