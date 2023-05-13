@@ -25,7 +25,7 @@ Käyttäjä voi valita haluamansa toiminnon klikkaamalla hiiren vasenta painiket
 
 ![Kuva peli-ikkunasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing_clean.png)
 
-Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren vasemmalla klikatessa ruutu avautuu ja oikealla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa.
+Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren vasemmalla klikatessa ruutu avautuu ja oikealla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa. Avattu ruutu voi olla joko tyhjä, miina tai lähettyvillä olevien miinojen lukumäärää kuvastava luku. Yhden ruudun ympärillä voi olla maksimissaan 8 miinaa. Mikäli avattu ruutu on tyhjä, pelikenttä avaa kaikki sen viereiset tyhjät ruudut ja viereiset ruudut, joiden lähettyvillä on miina.
 
 ![Kuva peli-ikkunasta liput](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing.png)
 
@@ -35,7 +35,7 @@ Peli-ikkunassa näkyy oikealla allekkain kulunut aika, siirtojen lukumäärä ja
 
 ![Kuva pelin päättymisestä häviö](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end_lost.png)
 
-Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käyttäjälle peliruudun alareunassa oliko peli voitto vai häviö.
+Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käyttäjälle peliruudun reunassa oliko peli voitto vai häviö.
 
 ### Asetusten muuttaminen (Options)
 
@@ -45,7 +45,7 @@ Sovellus avaa pudotusvalikon, jossa on vaihtoehtoina valittavina vaikeustasoina 
 
 ![Kuva Custom-vaihtoehdon valinnasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_options_custom.png)
 
-Mikäli käyttäjä valitsee pudotusvalikosta vaihtoehdon Custom, näytölle ilmestyy kentät, joihin voidaan syöttää halutut parametrit pelin leveydelle, korkeudelle ja miinojen lukumäärälle. Pelin korkeuden ja leveyden on oltava väliltä 5-32 ja miinojen lukumäärän väliltä 2-300. Valinta vahvistetaan painamalla Enter-näppäintä (huom. tehtävä jokaisen parametrin kohdalla erikseen). 
+Mikäli käyttäjä valitsee pudotusvalikosta vaihtoehdon Custom, näytölle ilmestyy kentät, joihin voidaan syöttää halutut parametrit pelin leveydelle, korkeudelle ja miinojen lukumäärälle. Pelin korkeuden ja leveyden on oltava väliltä 5-32 ja miinojen lukumäärän väliltä 2-300 (ei voi olla kuitenkaan suurempi kuin ruutujen määrä). Valinta vahvistetaan painamalla Enter-näppäintä (huom. tehtävä jokaisen parametrin kohdalla erikseen). 
 
 Jos syötetyt arvot eivät vastaa annettuja ehtoja, käytetään oletusarvoina lukua 15 kaikilla parametreilla.
 
