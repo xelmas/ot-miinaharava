@@ -12,9 +12,9 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 [Käyttöohje](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kayttoohje.md)
 
 ## Releases
-
-[Viikko 5 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) \
-[Viikko 6 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko6)
+[Loppupalautus](https://github.com/xelmas/ot-miinaharava/releases/tag/loppupalautus) \
+[Viikko 6 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko6) \
+[Viikko 5 deadline](https://github.com/xelmas/ot-miinaharava/releases/tag/viikko5) 
 
 ## Asennusohjeet
 
