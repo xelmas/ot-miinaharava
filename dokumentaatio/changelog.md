@@ -57,6 +57,7 @@
 - Luotu kustomoitu fontti peli-ikkunan tilastoille (kulunut aika, tehdyt siirrot, miinojen lkm) ja oliko peli voitto/häviö.
 - Muokattu Minesweeper-luokan jäljellä olevien miinojen lukumäärälaskurin metodin nimi kuvaavaksi get_game_mines_flagged_info() -> get_unflagged_mines().
 - Muokattu UI-luokan tilastojen tarkastelumetodi show_leaderboard() -> leaderboard().
+- Luotu uusin release
 
 ### dokumentaatio
 - Päivitetty vaatimusmäärittely.
