@@ -19,9 +19,9 @@ Sovellus avautuu päävalikkonäkymään:
 
 ![Kuva päävalikosta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_main_menu.png)
 
-Käyttäjä voi valita haluamansa toiminnon klikkaamalla hiiren oikeaa painiketta.
+Käyttäjä voi valita haluamansa toiminnon klikkaamalla hiiren vasenta painiketta.
 
-### Pelin pelaaminen(Play)
+### Pelin pelaaminen (Play)
 
 ![Kuva peli-ikkunasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing_clean.png)
 
@@ -29,7 +29,7 @@ Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, et
 
 ![Kuva peli-ikkunasta liput](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing.png)
 
-Peli-ikkunassa näkyy oikealla jäljellä olevien miinojen lukumäärä, joka vähenee sitä mukaa kun ruutuja liputetaan.
+Peli-ikkunassa näkyy oikealla allekkain kulunut aika, siirtojen lukumäärä ja jäljellä olevien miinojen lukumäärä, joka vähenee sitä mukaa kun ruutuja liputetaan.
 
 ![Kuva pelin päättymisestä voitto](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end_won.png)
 ![Kuva pelin päättymisestä häviö](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_game_end_lost.png)
@@ -40,7 +40,7 @@ Pelin päättyessä näytetään kaikkien miinojen sijainti ja näytetään käy
 
 ![Kuva asetuksista](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_options.png)
 
-Sovellus avaa pudotusvalikon, jossa on vaihtoehtoina valittavina vaikeustasoina Beginner, Intermediate, Expert tai Custom. Käyttäjänimen voi muuttaa syöttämällä haluttu nimi (oltava 3-10 merkkiä) ja painamalla Enter.
+Sovellus avaa pudotusvalikon, jossa on vaihtoehtoina valittavina vaikeustasoina Beginner, Intermediate, Expert tai Custom. Käyttäjänimen voi muuttaa syöttämällä haluttu nimi (oltava 3-10 merkkiä) ja painamalla Enter-näppäintä.
 
 ![Kuva Custom-vaihtoehdon valinnasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_options_custom.png)
 
