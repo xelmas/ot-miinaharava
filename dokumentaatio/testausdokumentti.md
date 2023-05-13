@@ -28,6 +28,7 @@ ResultRepository-luokka on testattu testiluokalla [TestResultRepository](https:/
 ### Testikattavuus
 
 Sovelluksen testien haarautumiskattavuus on 99 %.
+
 ![Kuva testikattavuudesta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/coverage-report.png)
 
 Testaamatta on jäänyt config.py tiedostosta virhetilanne, joka aiheutuu jos konfiguraatiotiedostoa ei löydy.
@@ -44,6 +45,6 @@ Sovelluksen asentaminen on testattu toimivaksi Linux-ympäristössä [käyttöoh
 
 Pelin toiminta on testattu niin, että kaikki [vaatimusmäärittelyssä](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/vaatimusmaarittely.md) mainitut kohdat ovat käyty läpi. Kaikkiin syötekenttiin on yritetty syöttää myös virheellisiä arvoja, kuten merkkijonoja ja tyhjiä.
 
-# Sovellukseen jääneet virhetilanteet
+## Sovellukseen jääneet virhetilanteet
 
-Ohjelman suoritus kaatuu, mikäli se yritetään käynnistää ilman, että SQLite tietokantaa on ensin alustettu. Eli käyttöohjeen mukaista ```poetry run invoke build````komentoa ei ole suoritettu ensin.
+Ohjelman suoritus kaatuu, mikäli se yritetään käynnistää ilman, että SQLite tietokantaa on ensin alustettu. Eli käyttöohjeen mukaista ```poetry run invoke build``` komentoa ei ole suoritettu ensin.
