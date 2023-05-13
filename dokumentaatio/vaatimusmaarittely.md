@@ -26,10 +26,10 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
 - Jos käyttäjä valitsee Custom, pyydetään käyttäjää syöttämään pelikentän leveys, korkeus ja miinojen lukumäärä.
     - Vaikeustason leveys tai korkeus ei voi olla suurempi kuin 32, mutta oltava vähintään 5.
     - Miinoja on oltava vähintään 2 ja maksimissaan 300. Jos miinoja on yhtä paljon kuin ruutuja, käytetään oletusarvoa 15.
-- Käyttäjä voi antaa käyttäjänimen, joka tallennetaan tietokantaan, kun peli päättyy voittoon. Oletusnimenä "PLAYER".
+- Käyttäjä voi antaa käyttäjänimen, joka tallennetaan tietokantaan pelituloksen yhteydessä, kun peli päättyy voittoon. Oletusnimenä "PLAYER".
 
 ### Tilasto
-- Käyttäjälle näytetään max 10 parasta tulosta nopeusjärjestyksessä
+- Käyttäjälle näytetään max 10 parasta tulosta nopeusjärjestyksessä.
 - Jos peli päättyy voittoon, tulos tallennetaan tietokantaan. Tietokantaan tallennetaan asetuksissa valitut tiedot: pelaajan nimi, pelin leveys, korkeus ja miinojen lukumäärä. Pelistä tallennetaan lisäksi peliin kulunut aika sekunteina ja kuinka monta siirtoa eli klikkausta käyttäjä käytti ruutujen avaamiseen.
 
 ### Lopetus
@@ -40,4 +40,4 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
 - Mahdollisuus luoda käyttäjätunnus ja kirjautua sisään.
 - Äänitehosteiden lisääminen.
 - Pelitulosten näyttäminen vaikeustasoittain.
-- Menun ulkoasun muokkaus
+- Menun ulkoasun muokkaus.
