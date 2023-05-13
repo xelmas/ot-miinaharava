@@ -15,7 +15,7 @@ class TestMinesweeper(unittest.TestCase):
         self.assertEqual(sprite.rect.y, y)
 
     def test_get_moves(self):
-        game = Minesweeper(5,5, 10, CELL_SIZE)
+        game = Minesweeper(5, 5, 10, CELL_SIZE)
         game.board.add_move()
         game.board.add_move()
         self.assertEqual(game.get_moves(), 2)
@@ -45,7 +45,7 @@ class TestMinesweeper(unittest.TestCase):
         game.board.add_flag(1, 1)
         game.board.add_flag(1, 2)
         game.board.add_flag(1, 3)
-        result = game.get_game_mines_flagged_info()
+        result = game.get_unflagged_mines()
         self.assertEqual(result, 2)
 
     def test_get_game_mines_flagged_info_not_negative(self):
@@ -56,7 +56,7 @@ class TestMinesweeper(unittest.TestCase):
         game.board.add_flag(0, 1)
         game.board.add_flag(0, 2)
         game.board.add_flag(0, 3)
-        result = game.get_game_mines_flagged_info()
+        result = game.get_unflagged_mines()
         self.assertEqual(result, 0)
 
     def test_initialize_mine_tile_sprite(self):
