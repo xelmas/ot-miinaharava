@@ -21,4 +21,12 @@
 |   29.4.       |       7       | Käyttöohjeen luonti, yritys saada menua toimimaan |
 |   30.4.       |       2       | Arkkitehtuurikuvauksen kuvien päivitys |
 |   2.5.        |       1       | Release ja dokumenttien päivitys |
-|   yht.        |       80      |               |
+|   4.5.        |       4       | Koodin muokkaus niin, että ohjelman suoritus ei pääty kun peli päättyy |
+|   6.5.        |       4       | Leaderboard-näkymän luonti, käyttöliittymään lisätty ohjetekstejä käyttäjälle, syötteiden tarkistukset |
+|   7.5.        |       5       | Vaatimusmäärittelyn päivitys, testausdokumentaation luominen, testien lisäys, refaktorointi |
+|   8.5.        |       3       | Kustomoidun fontin lisäys, refaktorointi, liputusbugin korjaus |
+|   9.5.        |       4       | docstrings-dokumentointi, lisää testejä, refaktorointi|
+|   10.5.       |       3       | refaktorointi, docstrings-dokumentointi |
+|   11.5.       |       3       | Arkkitehtuurikuvauksen päivitys |
+|   13.5.       |       3       | Refaktorointi, sekvenssikaavioiden lisääminen, käyttöohjeen päivitys, testaus|
+|   yht.        |       109     |               |
