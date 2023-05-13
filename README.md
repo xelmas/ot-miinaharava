@@ -19,7 +19,7 @@ Sovellus on yksinpelattava *miinaharava*, jonka vaikeustason voi käyttäjä its
 ## Asennusohjeet
 
 1. Varmista, että poetry on asennettu komennolla ```poetry --version```
-2. Kloonaa repositorio komennolla ```git clone``` tai lataa lähdekoodi kohdasta releases.
+2. Kloonaa repositorio komennolla ```git clone``` tai lataa uusimman [releasen](https://github.com/xelmas/ot-miinaharava/releases/tag/loppupalautus) lähdekoodi.
 3. Siirry hakemistoon ja asenna riippuvuudet komennolla ```poetry install```
 4. Ennen ohjelman käynnistämistä suorita alustustoimenpiteet komennolla ```poetry run invoke build```
 
