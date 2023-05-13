@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa sovelluksen viimeisimmän releasen lähdekoodi.
+Lataa sovelluksen viimeisimmän [releasen](https://github.com/xelmas/ot-miinaharava/releases/tag/loppupalautus) lähdekoodi.
 
 ### Konfigurointi
 
