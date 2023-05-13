@@ -25,7 +25,7 @@ Käyttäjä voi valita haluamansa toiminnon klikkaamalla hiiren vasenta painiket
 
 ![Kuva peli-ikkunasta](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing_clean.png)
 
-Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren vasemmalla klikatessa ruutu avautuu ja oikealla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa. Avattu ruutu voi olla joko tyhjä, miina tai lähettyvillä olevien miinojen lukumäärää kuvastava luku. Yhden ruudun ympärillä voi olla maksimissaan 8 miinaa. Mikäli avattu ruutu on tyhjä, pelikenttä avaa kaikki sen viereiset tyhjät ruudut ja viereiset ruudut, joiden lähettyvillä on miina.
+Sovellus avaa uuden ikkunan, jossa on miinaharavapeli. Peliä pelataan siten, että hiiren vasemmalla klikatessa ruutu avautuu ja oikealla klikatessa ruutu liputetaan. Jo liputettua tai avattua ruutua ei voi liputtaa. Avattu ruutu voi olla joko tyhjä, miina tai lähettyvillä olevien miinojen lukumäärää kuvastava luku. Yhden ruudun ympärillä voi olla maksimissaan 8 miinaa. Mikäli avattu ruutu on tyhjä, pelikenttä avaa kaikki sen viereiset tyhjät ruudut ja viereiset ruudut, joiden lähettyvillä on miina. Jos avattu ruutu on miina, peli päättyy. Peli päättyy voittoon silloin, kun kaikki miinoittamattomat ruudut ovat avattu.
 
 ![Kuva peli-ikkunasta liput](https://github.com/xelmas/ot-miinaharava/blob/main/dokumentaatio/kuvat/kayttoohje_playing.png)
 
