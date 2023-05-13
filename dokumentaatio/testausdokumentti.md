@@ -47,4 +47,4 @@ Pelin toiminta on testattu niin, että kaikki [vaatimusmäärittelyssä](https:/
 
 ## Sovellukseen jääneet virhetilanteet
 
-Ohjelman suoritus kaatuu, mikäli se yritetään käynnistää ilman, että SQLite tietokantaa on ensin alustettu. Eli käyttöohjeen mukaista ```poetry run invoke build``` komentoa ei ole suoritettu ensin.
+Ohjelman suoritus kaatuu pelitulosta tallentaessa, mikäli se käynnistetään ilman, että SQLite tietokantaa on ensin alustettu. Eli käyttöohjeen mukaista ```poetry run invoke build``` komentoa ei ole suoritettu ensin.
