@@ -47,7 +47,7 @@
 - Muokattu menu-looppia niin, että pelin päättyminen ei sulje ohjelmaa vaan palaa takaisin päävalikkoon.
 - Luotu Leaderboard-näkymä pelattujen pelien tilastojen tarkasteluun.
 - Lisätty Options-näkymään pelaajan käyttäjänimi, joka on vaihdettavissa. Oletusnimenä "PLAYER".
-- Muokattu Custom-levelin syötekentän placeholderit vastaamaan levelin parametrejä (15, 15, 15)-
+- Muokattu Custom-levelin syötekentän placeholderit vastaamaan levelin parametrejä (15, 15, 15).
 - Lisätty Custom-levelin parametrien syötekenttiin tarkistukset sallituista arvoista. Leveys ja korkeus välillä 5-32 ja miinojen lukumäärä 2-300. Jos ei päde, käytetään oletusarvona lukua 15.
 - Lisätty tietokantahaku, joka näyttää vain 10 nopeinta suoritusta nopeusjärjestyksessä.
 - Lisätty pelinäkymään alaspäin menevä miinalaskuri, jonka arvo pienenee sitä mukaa kun käyttäjä liputtaa ruutuja, ja vastaavasti kasvaa kun käyttäjä poistaa liputuksen ruudusta. Ei voi mennä kuitenkaan negatiiviseksi.
@@ -64,8 +64,7 @@
 - Siirretty assets-kansiosta pelin grafiikat omaan images-kansioon ja lisätty font-kansio, joka sisältää kustomoidun font-tiedoston.
 - Docstrings-dokumentointi lisätty luokkiin service, repository, spritet.
 - Arkkitehtuurikuvauksen päivitys.
-- Käyttöohjeen päivitys
-- Testausdokumentaation viimeistely
+- Käyttöohjeen päivitys.
 
 ### Testaus
 - Testattu että luokka ResultService ja ResultRepository palauttavat 10 parasta tulosta nopeusjärjestyksessä.
