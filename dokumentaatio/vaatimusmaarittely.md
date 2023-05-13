@@ -13,7 +13,7 @@ Sovellus on yksinpelattava miinaharava, jonka vaikeustason voi käyttäjä itse 
 - Vaikeustaso määräytyy käyttäjän valitseman pelikentän leveyden, korkeuden ja miinojen lukumäärän mukaan.
 - Kun uusi peli aloitetaan, aloitetaan myös ajanotto ja avattujen ruutujen (siirtojen) laskeminen.
 - Käyttäjälle näkyy laskuri, joka kertoo kuinka monta miinaa pelissä vielä on. Laskurin arvo pienenee kun käyttäjä liputtaa ruutuja. Laskuri ei kuitenkaan voi mennä negatiiviseksi, eikä se ota kantaa sisältääkö käyttäjän merkkaama ruutu todella miinaa.
-- Käyttäjä voi merkata miinan sisältävän ruudun liputtamalla sen painamalla hiiren oikeaa painiketta. Käyttäjä voi myös poistaa liputuksen painamalla liputtua ruutua uudestaan hiiren oikealla painikkeella.
+- Käyttäjä voi merkata miinan sisältävän ruudun liputtamalla sen painamalla hiiren oikeaa painiketta. Käyttäjä voi myös poistaa liputuksen klikkaamalla liputettua ruutua uudestaan hiiren oikealla painikkeella.
     - Siirtojen lukumäärä ei kasva.
     - Jäljellä olevien miinojen lukumäärä vähenee yhdellä.
 - Käyttäjä voi avata ruudun painamalla hiiren vasenta painiketta.
